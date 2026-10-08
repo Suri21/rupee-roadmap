@@ -1,0 +1,1204 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="A free, step-by-step personal finance guide for first-time investors in India.">
+<title>Rupee Roadmap</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Public+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500&display=swap">
+<style>
+/* Layout: sticky header with a step-by-step journey nav (Home, 4 numbered steps, then tools). Each step is a two-pane workspace that stacks on phones. */
+:root{
+  --bg:#F2F5F1; --surface:#FFFFFF; --sunk:#E8EEEA; --ink:#14302A; --muted:#566A64; --line:#D6E0DA;
+  --accent:#0E5E4E; --accent-ink:#FFFFFF; --marigold:#C47F12; --marigold-soft:#FBEFD9;
+  --s1:#00806A; --s2:#C47F12;
+  --c-cash:#A04E9E; --c-debt:#3E6FD8; --c-eq:#00806A; --c-gold:#C47F12;
+  --good:#23794A; --good-soft:#E2F2E8; --warn:#9A6410; --warn-soft:#FBF0DB; --crit:#B03A2A; --crit-soft:#F8E4E0;
+  --f-display:"Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --f-body:"Public Sans", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --f-num:"IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  --r:10px;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0E1916; --surface:#162420; --sunk:#1D2E29; --ink:#E4EEEA; --muted:#97ABA4; --line:#2A3D37;
+  --accent:#4FC2A6; --accent-ink:#082019; --marigold:#E3A94A; --marigold-soft:#3A2E17;
+  --s1:#13A88A; --s2:#C47F12;
+  --c-cash:#B565B3; --c-debt:#5B8BEF; --c-eq:#13A88A; --c-gold:#C47F12;
+  --good:#5CC48A; --good-soft:#18342A; --warn:#E5B05A; --warn-soft:#3A2F17; --crit:#EE8572; --crit-soft:#3D221D;
+  color-scheme:dark;}}
+:root[data-theme="dark"]{
+  --bg:#0E1916; --surface:#162420; --sunk:#1D2E29; --ink:#E4EEEA; --muted:#97ABA4; --line:#2A3D37;
+  --accent:#4FC2A6; --accent-ink:#082019; --marigold:#E3A94A; --marigold-soft:#3A2E17;
+  --s1:#13A88A; --s2:#C47F12;
+  --c-cash:#B565B3; --c-debt:#5B8BEF; --c-eq:#13A88A; --c-gold:#C47F12;
+  --good:#5CC48A; --good-soft:#18342A; --warn:#E5B05A; --warn-soft:#3A2F17; --crit:#EE8572; --crit-soft:#3D221D;
+  color-scheme:dark;}
+
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:15px;line-height:1.55;margin:0}
+.wrap{max-width:1140px;margin:0 auto;padding-inline:16px}
+h1,h2,h3,h4{font-family:var(--f-display);text-wrap:balance;margin:0;line-height:1.15}
+h1{font-size:clamp(1.9rem,4.6vw,3rem);font-weight:800;letter-spacing:-.02em}
+h2{font-size:clamp(1.5rem,3vw,2rem);font-weight:800;letter-spacing:-.01em}
+h3{font-size:1.15rem;font-weight:700}
+h4{font-size:1rem;font-weight:700}
+p{margin:0}
+.num{font-family:var(--f-num);font-variant-numeric:tabular-nums}
+.muted{color:var(--muted)}
+.eyebrow{font-size:.72rem;text-transform:uppercase;letter-spacing:.09em;font-weight:700;color:var(--muted)}
+button{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:6px}
+
+/* header */
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:10;background:color-mix(in srgb,var(--bg) 94%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:10px 16px;flex-wrap:wrap;padding-block:10px}
+.brand{display:flex;align-items:center;gap:10px}
+.mark{width:34px;height:34px;border-radius:9px;background:var(--accent);color:var(--accent-ink);display:grid;place-items:center;font-family:var(--f-display);font-weight:800;font-size:1.2rem}
+.brand b{font-family:var(--f-display);font-size:1.2rem;font-weight:800;letter-spacing:-.01em}
+.brand small{display:block;color:var(--muted);font-size:.74rem;line-height:1.2}
+nav.tabs{display:flex;gap:2px;overflow-x:auto;scrollbar-width:none;max-width:100%}
+nav.tabs::-webkit-scrollbar{display:none}
+nav.tabs button{border:0;background:transparent;padding:8px 11px;border-radius:8px;cursor:pointer;font-weight:600;font-size:.88rem;color:var(--muted);white-space:nowrap;display:inline-flex;gap:6px;align-items:center}
+nav.tabs button .sn{font-family:var(--f-num);font-size:.72rem;width:18px;height:18px;border-radius:50%;display:inline-grid;place-items:center;background:var(--sunk)}
+nav.tabs button[aria-selected="true"]{background:var(--ink);color:var(--bg)}
+nav.tabs button[aria-selected="true"] .sn{background:var(--marigold);color:#fff}
+nav.tabs .sep{width:1px;background:var(--line);margin:6px 6px;flex:none}
+
+main{padding-block:28px 48px}
+.pagehead{display:grid;gap:10px;max-width:72ch;margin-bottom:22px}
+.pagehead p{color:var(--muted)}
+.note-adv{display:grid;grid-template-columns:auto minmax(0,1fr);gap:12px;align-items:start;background:var(--marigold-soft);border-radius:var(--r);padding:14px 16px;max-width:820px;margin-bottom:24px}
+.note-adv .av{width:34px;height:34px;border-radius:50%;background:var(--marigold);color:#fff;display:grid;place-items:center;font-family:var(--f-display);font-weight:800}
+.note-adv b{display:block;font-size:.72rem;text-transform:uppercase;letter-spacing:.09em;color:var(--warn)}
+.note-adv p{font-size:.95rem}
+
+.grid2{display:grid;grid-template-columns:minmax(0,370px) minmax(0,1fr);gap:24px;align-items:start}
+@media (max-width:880px){.grid2{grid-template-columns:minmax(0,1fr)}}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:20px;min-width:0}
+.stack{display:grid;gap:16px;min-width:0}
+
+/* form */
+fieldset{border:0;padding:0;margin:0;display:grid;gap:12px;min-width:0}
+legend{font-family:var(--f-display);font-weight:700;font-size:.95rem;margin-bottom:6px;padding:0}
+.field{display:grid;gap:4px;min-width:0}
+.field label,.field .lab{font-size:.84rem;font-weight:600}
+.field .hint{font-size:.75rem;color:var(--muted)}
+.inr{position:relative}
+.inr span{position:absolute;left:10px;top:50%;transform:translateY(-50%);color:var(--muted);font-family:var(--f-num);font-size:.85rem}
+input[type=number],input[type=text],select{width:100%;font:inherit;font-family:var(--f-num);font-size:.9rem;padding:8px 10px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--ink);min-width:0}
+select{font-family:var(--f-body)}
+.inr input{padding-left:24px}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.row3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+@media (max-width:520px){.row3{grid-template-columns:1fr 1fr}}
+.seg{display:flex;gap:4px;background:var(--sunk);border-radius:9px;padding:3px}
+.seg button{flex:1;border:0;background:transparent;padding:7px 8px;border-radius:7px;cursor:pointer;font-size:.84rem;font-weight:600;color:var(--muted)}
+.seg button[aria-pressed="true"]{background:var(--surface);color:var(--ink);box-shadow:0 1px 2px rgba(0,0,0,.1)}
+.sample{display:flex;gap:8px;align-items:center;justify-content:space-between;flex-wrap:wrap;background:var(--marigold-soft);border-radius:8px;padding:10px 12px;font-size:.82rem}
+.linkbtn{border:0;background:none;color:var(--accent);font-weight:700;cursor:pointer;padding:0;text-decoration:underline;text-underline-offset:3px}
+.btn{border:1px solid var(--line);background:var(--surface);padding:9px 14px;border-radius:8px;cursor:pointer;font-weight:700;font-size:.88rem}
+.btn.primary{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+hr{border:0;border-top:1px solid var(--line);margin:4px 0}
+.stepnav{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-top:28px}
+
+/* status */
+.pill{display:inline-flex;align-items:center;gap:6px;font-size:.74rem;font-weight:700;padding:3px 9px;border-radius:999px;white-space:nowrap}
+.pill::before{content:"";width:7px;height:7px;border-radius:50%;background:currentColor}
+.pill.good{color:var(--good);background:var(--good-soft)}
+.pill.warn{color:var(--warn);background:var(--warn-soft)}
+.pill.crit{color:var(--crit);background:var(--crit-soft)}
+.pill.neutral{color:var(--muted);background:var(--sunk)}
+.meter{height:6px;background:var(--sunk);border-radius:3px;overflow:hidden}
+.meter i{display:block;height:100%;border-radius:3px}
+.meter i.good{background:var(--good)} .meter i.warn{background:var(--warn)} .meter i.crit{background:var(--crit)}
+
+/* home */
+.hero{display:grid;gap:14px;max-width:760px;padding-block:8px 28px}
+.hero p{font-size:1.08rem;color:var(--muted);max-width:62ch}
+.journey{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;counter-reset:j}
+@media (max-width:980px){.journey{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:560px){.journey{grid-template-columns:minmax(0,1fr)}}
+.jcard{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:18px;display:grid;gap:10px;grid-template-rows:auto auto 1fr auto auto;min-width:0}
+.jcard .jn{font-family:var(--f-display);font-weight:800;font-size:2rem;line-height:1;color:var(--marigold)}
+.jcard h3{font-size:1.1rem}
+.jcard p{font-size:.88rem;color:var(--muted)}
+.jcard .stat{border-top:1px solid var(--line);padding-top:10px;display:grid;gap:4px;font-size:.85rem}
+.jcard .stat .pill{justify-self:start}
+.jcard .stat b{font-family:var(--f-display);font-size:1.15rem}
+.principles{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;margin-top:32px}
+@media (max-width:760px){.principles{grid-template-columns:minmax(0,1fr)}}
+.principles div{display:grid;gap:4px;border-top:2px solid var(--ink);padding-top:12px}
+.principles p{font-size:.9rem;color:var(--muted)}
+.toolsrow{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:28px}
+@media (max-width:560px){.toolsrow{grid-template-columns:1fr}}
+.toolsrow button{text-align:left;border:1px dashed var(--line);background:transparent;border-radius:var(--r);padding:14px 16px;cursor:pointer;display:grid;gap:2px}
+.toolsrow button span{font-size:.85rem;color:var(--muted)}
+
+/* score */
+.scorehead{display:grid;grid-template-columns:auto 1fr;gap:20px;align-items:center}
+@media (max-width:480px){.scorehead{grid-template-columns:1fr}}
+.dial{position:relative;width:128px;height:128px}
+.dial svg{width:100%;height:100%;transform:rotate(-90deg)}
+.dial .val{position:absolute;inset:0;display:grid;place-items:center;text-align:center}
+.dial .val b{font-family:var(--f-display);font-size:2.3rem;font-weight:800;line-height:1}
+.dial .val small{display:block;color:var(--muted);font-size:.72rem}
+.check{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:4px 12px;padding:14px 0;border-top:1px solid var(--line)}
+.check:first-child{border-top:0}
+.check h4{font-size:.95rem}
+.check p{grid-column:1/-1;font-size:.88rem;color:var(--muted)}
+.check .act{grid-column:1/-1;font-size:.88rem}
+.check .meter{grid-column:1/-1}
+.steps{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.steps li{display:grid;grid-template-columns:34px minmax(0,1fr);gap:12px;align-items:start;padding:12px;border-radius:9px;border:1px solid var(--line)}
+.steps li .n{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;font-family:var(--f-display);font-weight:800;background:var(--sunk);color:var(--muted)}
+.steps li.next{border-color:var(--marigold);background:var(--marigold-soft)}
+.steps li.next .n{background:var(--marigold);color:#fff}
+.steps li.done .n{background:var(--good-soft);color:var(--good)}
+.steps li.done h4{text-decoration:line-through;text-decoration-color:var(--muted);color:var(--muted)}
+.steps .tag{font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;margin-left:6px}
+.steps li.next .tag{color:var(--warn)} .steps li.done .tag{color:var(--good)} .steps li.later .tag{color:var(--muted)}
+.steps p{font-size:.87rem;color:var(--muted);margin-top:2px}
+
+/* tiles */
+.tiles{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+@media (max-width:880px){.tiles{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.tile{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:14px 16px;display:grid;gap:4px;align-content:start;min-width:0}
+.tile small{font-size:.78rem;color:var(--muted)}
+.tile b{font-family:var(--f-display);font-size:clamp(1.3rem,2.6vw,1.7rem);font-weight:800;line-height:1.15}
+.tile.alert{border-color:var(--crit);background:var(--crit-soft)}
+.tile.alert b{color:var(--crit)}
+.tile.ok{border-color:var(--good);background:var(--good-soft)}
+.tile.ok b{color:var(--good)}
+
+/* goals */
+.goalgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:14px}
+@media (max-width:400px){.goalgrid{grid-template-columns:minmax(0,1fr)}}
+.gcard{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:16px;display:grid;gap:12px;align-content:start;min-width:0}
+.gcard .gtop{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:8px;align-items:center}
+.gcard .rm{border:0;background:none;color:var(--muted);cursor:pointer;font-size:.8rem;font-weight:600;padding:4px}
+.gcard .rm:hover{color:var(--crit)}
+.gcard .gname{font-family:var(--f-display);font-weight:700;font-size:1.02rem;border:0;border-bottom:1px dashed var(--line);border-radius:0;background:transparent;padding:2px 0}
+.gout{display:grid;grid-template-columns:1fr 1fr;gap:10px 14px;background:var(--sunk);border-radius:8px;padding:12px}
+.gout small{display:block;font-size:.72rem;color:var(--muted)}
+.gout b{font-family:var(--f-num);font-weight:500;font-size:.98rem}
+.gout .full{grid-column:1/-1;display:grid;gap:6px}
+.gout .row{display:flex;justify-content:space-between;gap:8px;align-items:center;flex-wrap:wrap}
+.addgoal{border:1px dashed var(--line);background:transparent;border-radius:var(--r);padding:16px;cursor:pointer;display:grid;place-items:center;gap:8px;min-height:120px;color:var(--muted);font-weight:600}
+.addgoal select{max-width:220px}
+.timeline{overflow-x:auto}
+.timeline svg{display:block;width:100%;min-width:560px;height:auto}
+.timeline .ax{font-family:var(--f-num);font-size:11px;fill:var(--muted)}
+.timeline .gl{font-family:var(--f-body);font-size:12px;font-weight:700;fill:var(--ink)}
+.timeline .gv{font-family:var(--f-num);font-size:11px;fill:var(--muted)}
+.verdict{display:grid;gap:12px}
+.verdict ol{margin:0;padding-left:20px;display:grid;gap:8px}
+.verdict li{font-size:.93rem}
+
+/* mix */
+.quiz{display:grid;gap:16px}
+.qq{display:grid;gap:8px}
+.qq p{font-size:.9rem;font-weight:600}
+.opts{display:grid;gap:6px}
+.opts button{text-align:left;border:1px solid var(--line);background:var(--bg);padding:8px 10px;border-radius:8px;cursor:pointer;font-size:.86rem}
+.opts button[aria-pressed="true"]{border-color:var(--accent);background:var(--surface);box-shadow:inset 3px 0 0 var(--accent);font-weight:600}
+.riskres{display:grid;gap:8px;padding:14px;border-radius:var(--r);background:var(--sunk)}
+.riskres b.big{font-family:var(--f-display);font-size:1.6rem;font-weight:800}
+.stackbar{display:flex;gap:2px;height:16px;border-radius:5px;overflow:hidden}
+.stackbar i{display:block;height:100%}
+.mixlegend{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:.8rem}
+.mixlegend span{display:inline-flex;align-items:center;gap:6px}
+.mixlegend i{width:10px;height:10px;border-radius:2px;display:inline-block}
+.mixlegend b{font-family:var(--f-num);font-weight:500}
+.mcard{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:18px;display:grid;gap:12px;min-width:0}
+.mcard .mtop{display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap;align-items:baseline}
+.where{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px}
+.where > div{border-radius:8px;padding:10px 12px;background:var(--sunk);display:grid;gap:4px;align-content:start;border-left:4px solid var(--c)}
+.where h5{margin:0;font-size:.82rem;font-family:var(--f-body);font-weight:700;display:flex;justify-content:space-between;gap:6px}
+.where ul{margin:0;padding-left:16px;font-size:.84rem;display:grid;gap:2px}
+.where .why{font-size:.78rem;color:var(--muted)}
+.tablewrap{overflow-x:auto;border:1px solid var(--line);border-radius:var(--r);background:var(--surface)}
+table{border-collapse:collapse;width:100%;font-size:.86rem}
+th,td{text-align:left;padding:10px 12px;border-top:1px solid var(--line);vertical-align:top}
+thead th{border-top:0;font-size:.72rem;text-transform:uppercase;letter-spacing:.07em;color:var(--muted);background:var(--sunk)}
+td.n,th.n{text-align:right;font-family:var(--f-num);font-variant-numeric:tabular-nums}
+.matrix td.cell{text-align:center;font-family:var(--f-num)}
+.matrix td.cell.me{background:var(--marigold-soft);font-weight:700}
+
+/* sliders & charts */
+.simnav{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px}
+.simnav button{border:1px solid var(--line);background:var(--surface);padding:8px 14px;border-radius:999px;cursor:pointer;font-weight:600;font-size:.88rem}
+.simnav button[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.slider{display:grid;gap:4px}
+.slider .top{display:flex;justify-content:space-between;gap:8px;align-items:baseline}
+.slider label{font-size:.84rem;font-weight:600;display:inline-flex;align-items:center;gap:6px}
+.slider label i{width:10px;height:10px;border-radius:2px;display:inline-block}
+.slider output{font-family:var(--f-num);font-size:.88rem;color:var(--accent);font-weight:500}
+input[type=range]{width:100%;accent-color:var(--accent)}
+.big{display:flex;flex-wrap:wrap;gap:12px 32px}
+.big div{min-width:0}
+.big b{display:block;font-family:var(--f-display);font-size:clamp(1.5rem,3.6vw,2.1rem);font-weight:800;line-height:1.1}
+.big small{color:var(--muted);font-size:.8rem}
+.takeaway{background:var(--sunk);border-radius:8px;padding:12px 14px;font-size:.92rem;display:grid;gap:6px}
+.chart{position:relative;width:100%}
+.chart svg{display:block;width:100%;height:auto;overflow:visible}
+.chart .ax{font-family:var(--f-num);font-size:11px;fill:var(--muted)}
+.chart .grid{stroke:var(--line);stroke-width:1}
+.chart .lbl{font-family:var(--f-body);font-size:12px;font-weight:700;fill:var(--ink)}
+.tip{position:absolute;pointer-events:none;background:var(--ink);color:var(--bg);font-size:.78rem;padding:6px 9px;border-radius:6px;white-space:nowrap;transform:translate(-50%,-110%);opacity:0;transition:opacity .1s;z-index:2}
+.tip b{font-family:var(--f-num);font-weight:500}
+.legend{display:flex;gap:16px;flex-wrap:wrap;font-size:.82rem;color:var(--muted)}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.legend i{width:14px;height:3px;border-radius:2px;display:inline-block}
+.legend i.band{height:10px;opacity:.25}
+.legend i.dash{background:repeating-linear-gradient(90deg,var(--ink) 0 4px,transparent 4px 7px)!important}
+.note{font-size:.78rem;color:var(--muted)}
+.mixtotal{display:flex;justify-content:space-between;align-items:center;gap:8px;font-size:.82rem}
+
+/* learn */
+.learn{display:grid;grid-template-columns:240px minmax(0,1fr);gap:28px;align-items:start}
+@media (max-width:880px){.learn{grid-template-columns:minmax(0,1fr)}}
+.toc{display:grid;gap:4px;position:sticky;top:calc(env(safe-area-inset-top,0px) + 120px)}
+@media (max-width:880px){.toc{position:static;display:flex;overflow-x:auto;gap:6px;padding-bottom:4px}}
+.toc button{text-align:left;border:0;background:transparent;padding:10px 12px;border-radius:8px;cursor:pointer;font-size:.9rem;font-weight:600;color:var(--muted);display:grid;grid-template-columns:22px 1fr;gap:6px}
+@media (max-width:880px){.toc button{white-space:nowrap;background:var(--surface);border:1px solid var(--line);grid-template-columns:auto auto}}
+.toc button span{font-family:var(--f-num);font-size:.8rem}
+.toc button[aria-selected="true"]{background:var(--surface);color:var(--ink);box-shadow:inset 3px 0 0 var(--marigold)}
+.article{display:grid;gap:20px;max-width:780px;min-width:0}
+.article .lead{font-size:1.05rem;color:var(--muted);max-width:65ch}
+.qlist{display:grid;border:1px solid var(--line);border-radius:var(--r);background:var(--surface);overflow:hidden}
+.q{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:12px;align-items:center;padding:12px 16px;border-top:1px solid var(--line)}
+.q:first-child{border-top:0}
+.q p{font-size:.93rem}
+.q .seg{min-width:120px}
+.result{border-radius:var(--r);padding:16px 18px;display:grid;gap:6px}
+.result.good{background:var(--good-soft)} .result.warn{background:var(--warn-soft)} .result.crit{background:var(--crit-soft)}
+.reasons{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
+.reason{padding:16px;border-radius:var(--r);background:var(--surface);border:1px solid var(--line);display:grid;gap:6px;align-content:start}
+.reason p{font-size:.9rem;color:var(--muted)}
+.ages{display:grid;gap:12px}
+.age{display:grid;grid-template-columns:120px minmax(0,1fr);gap:16px;padding:16px;background:var(--surface);border:1px solid var(--line);border-radius:var(--r)}
+@media (max-width:560px){.age{grid-template-columns:minmax(0,1fr)}}
+.age .yrs{font-family:var(--f-display);font-weight:800;font-size:1.4rem;color:var(--accent)}
+.age ul{margin:0;padding-left:18px;display:grid;gap:4px;font-size:.92rem}
+.dd{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media (max-width:560px){.dd{grid-template-columns:1fr}}
+.dd > div{padding:16px;border-radius:var(--r);display:grid;gap:8px;align-content:start}
+.dd .do{background:var(--good-soft)} .dd .dont{background:var(--crit-soft)}
+.dd h4{font-size:.95rem}
+.dd .do h4{color:var(--good)} .dd .dont h4{color:var(--crit)}
+.dd ul{margin:0;padding-left:18px;display:grid;gap:6px;font-size:.9rem}
+table.inst{min-width:760px}
+tr.layer td{background:var(--sunk);font-family:var(--f-display);font-weight:700;font-size:.82rem;color:var(--accent)}
+td.iname{font-weight:700;white-space:nowrap}
+.lvl{display:inline-flex;gap:2px;vertical-align:middle}
+.lvl i{width:8px;height:8px;border-radius:2px;background:var(--line)}
+.lvl i.on{background:var(--ink)}
+td .trap{color:var(--crit)}
+.books{display:grid;gap:12px}
+.book{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:4px 16px;padding:16px;background:var(--surface);border:1px solid var(--line);border-radius:var(--r)}
+.book h4{font-size:1.02rem}
+.book .by{font-size:.85rem;color:var(--muted)}
+.book p{grid-column:1/-1;font-size:.9rem}
+.book .idea{grid-column:1/-1;font-size:.88rem;color:var(--muted)}
+.book .idea b{color:var(--ink)}
+.chip{font-size:.72rem;font-weight:700;padding:3px 9px;border-radius:999px;background:var(--sunk);color:var(--muted);align-self:start;white-space:nowrap}
+.chip.start{background:var(--good-soft);color:var(--good)}
+
+footer{border-top:1px solid var(--line);padding-block:20px 32px;font-size:.8rem;color:var(--muted)}
+footer p{max-width:85ch}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+
+</head>
+<body>
+<header>
+  <div class="wrap bar">
+    <div class="brand"><div class="mark">₹</div><div><b>Rupee Roadmap</b><small>Your personal finance guide</small></div></div>
+    <nav class="tabs" role="tablist" aria-label="Sections">
+      <button role="tab" data-tab="home">Home</button>
+      <span class="sep" aria-hidden="true"></span>
+      <button role="tab" data-tab="found"><span class="sn">1</span>Foundation</button>
+      <button role="tab" data-tab="goals"><span class="sn">2</span>Goals</button>
+      <button role="tab" data-tab="mix"><span class="sn">3</span>Investment mix</button>
+      <button role="tab" data-tab="future"><span class="sn">4</span>Your future</button>
+      <span class="sep" aria-hidden="true"></span>
+      <button role="tab" data-tab="sim">Simulators</button>
+      <button role="tab" data-tab="learn">Learn</button>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+
+<!-- ============ HOME ============ -->
+<section id="home" role="tabpanel">
+  <div class="hero">
+    <span class="eyebrow">A step-by-step money plan</span>
+    <h1>Plan your money in the order a good adviser would</h1>
+    <p>Most people start by asking where to invest. That is the last of four questions. Answer them in order and you will know what each rupee is for, where it should go, and whether it gets you there.</p>
+  </div>
+  <div class="journey" id="journey"></div>
+  <div class="principles">
+    <div><h4>Protect before you grow</h4><p>An emergency fund and insurance stop one bad month from undoing years of investing.</p></div>
+    <div><h4>Every rupee needs a job and a date</h4><p>Goals decide how much to invest. Time to the goal decides where.</p></div>
+    <div><h4>Judge a plan by its range</h4><p>Look at what you'd have in a weak market and in today's money, not just the best-case number.</p></div>
+  </div>
+  <div class="toolsrow">
+    <button type="button" data-go="sim"><b>Simulators</b><span>See the cost of waiting, inflation, step-up SIPs and more</span></button>
+    <button type="button" data-go="learn"><b>Learn</b><span>Short guides: self-check, teaching kids, instruments, books</span></button>
+  </div>
+</section>
+
+<!-- ============ STEP 1 FOUNDATION ============ -->
+<section id="found" role="tabpanel" hidden>
+  <div class="pagehead"><span class="eyebrow">Step 1 of 4</span><h2>Am I financially safe?</h2>
+    <p>Enter your monthly money and what you already have. You get a health score, the reason behind each part of it, and what to fix first.</p></div>
+  <div class="note-adv"><div class="av">A</div><div><b>Adviser's note</b><p>I don't discuss investments with anyone until three things are in place: an emergency fund, insurance, and no expensive debt. Without them, one bad month forces you to sell investments at the worst possible time.</p></div></div>
+  <div class="grid2">
+    <form class="panel stack" id="planForm" autocomplete="off">
+      <div class="sample" id="sampleNote"><span>Showing an example: <b>Ravi, 29, salaried in Indore</b>. Replace with your numbers.</span><button type="button" class="linkbtn" id="clearBtn">Start blank</button></div>
+      <fieldset>
+        <legend>About you</legend>
+        <div class="field"><span class="lab">How do you earn?</span>
+          <div class="seg" id="incomeType"><button type="button" data-v="salaried">Salaried</button><button type="button" data-v="business">Business / self-employed</button></div>
+        </div>
+        <div class="row2">
+          <div class="field"><label for="age">Age</label><input type="number" id="age" min="18" max="70"></div>
+          <div class="field"><label for="dependents">People who depend on you</label><input type="number" id="dependents" min="0" max="10"></div>
+        </div>
+      </fieldset>
+      <hr>
+      <fieldset>
+        <legend>Every month</legend>
+        <div class="field"><label for="income">Take-home income</label><div class="inr"><span>₹</span><input type="number" id="income" min="0" step="1000"></div><span class="hint" id="incomeHint">After tax and PF deductions</span></div>
+        <div class="field"><label for="expenses">Household expenses</label><div class="inr"><span>₹</span><input type="number" id="expenses" min="0" step="1000"></div><span class="hint">Rent, food, bills, school fees, travel. Leave out EMIs.</span></div>
+        <div class="field"><label for="emi">Total EMIs</label><div class="inr"><span>₹</span><input type="number" id="emi" min="0" step="500"></div></div>
+        <div class="field"><label for="investing">Amount you save or invest</label><div class="inr"><span>₹</span><input type="number" id="investing" min="0" step="500"></div><span class="hint">SIPs, RD, PPF, anything you set aside regularly</span></div>
+      </fieldset>
+      <hr>
+      <fieldset>
+        <legend>What you have today</legend>
+        <div class="field"><label for="savings">Emergency savings you can withdraw quickly</label><div class="inr"><span>₹</span><input type="number" id="savings" min="0" step="1000"></div><span class="hint">Savings account, FD, liquid fund. Not gold or property.</span></div>
+        <div class="field"><label for="badDebt">Credit card or personal loan outstanding</label><div class="inr"><span>₹</span><input type="number" id="badDebt" min="0" step="1000"></div></div>
+        <div class="field"><label for="term">Term life insurance cover</label><div class="inr"><span>₹</span><input type="number" id="term" min="0" step="100000"></div><span class="hint">Pure term plans only. Endowment and ULIP policies don't count.</span></div>
+        <div class="field"><label for="health">Health insurance cover for family</label><div class="inr"><span>₹</span><input type="number" id="health" min="0" step="100000"></div><span class="hint">Include employer cover if you have it</span></div>
+      </fieldset>
+    </form>
+    <div class="stack" id="foundOut" aria-live="polite"></div>
+  </div>
+  <div class="stepnav"><button class="btn" data-go="home">← Home</button><button class="btn primary" data-go="goals">Next: map your goals →</button></div>
+</section>
+
+<!-- ============ STEP 2 GOALS ============ -->
+<section id="goals" role="tabpanel" hidden>
+  <div class="pagehead"><span class="eyebrow">Step 2 of 4</span><h2>What am I saving for?</h2>
+    <p>List every goal, big or small. You'll see what each one will really cost after inflation, how much to invest for it every month, and how far short you are in total.</p></div>
+  <div class="note-adv"><div class="av">A</div><div><b>Adviser's note</b><p>"I should save more" never works. "₹7,500 a month for 16 years for my daughter's college" does. When you can't fund everything, protect retirement first: there are loans for education, but none for retirement.</p></div></div>
+  <div class="stack" style="gap:20px">
+    <div class="tiles" id="goalTiles"></div>
+    <div class="panel stack"><div class="mtop" style="display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap"><span class="eyebrow">Your goals on a timeline</span><span class="note">Amounts are future costs after inflation</span></div><div class="timeline" id="timeline"></div></div>
+    <div class="goalgrid" id="goalList"></div>
+    <div class="panel verdict" id="goalVerdict"></div>
+  </div>
+  <div class="stepnav"><button class="btn" data-go="found">← Step 1: Foundation</button><button class="btn primary" data-go="mix">Next: choose how to invest →</button></div>
+</section>
+
+<!-- ============ STEP 3 MIX ============ -->
+<section id="mix" role="tabpanel" hidden>
+  <div class="pagehead"><span class="eyebrow">Step 3 of 4</span><h2>How should I invest for each goal?</h2>
+    <p>Answer five questions to find your risk profile. Each goal then gets a mix of investment types based on how soon you need the money, what kind of goal it is, and how much risk you can take.</p></div>
+  <div class="note-adv"><div class="av">A</div><div><b>Adviser's note</b><p>Where to invest depends on two things: when you need the money, and how big a fall you can sit through without selling. Money you need within 3 years stays out of equity, however good recent returns look.</p></div></div>
+  <div class="grid2">
+    <div class="panel stack" id="riskPanel"></div>
+    <div class="stack" id="mixOut"></div>
+  </div>
+  <div class="stepnav"><button class="btn" data-go="goals">← Step 2: Goals</button><button class="btn primary" data-go="future">Next: see your future →</button></div>
+</section>
+
+<!-- ============ STEP 4 FUTURE ============ -->
+<section id="future" role="tabpanel" hidden>
+  <div class="pagehead"><span class="eyebrow">Step 4 of 4</span><h2>Will I get there?</h2>
+    <p>Pick a goal and see how much you'd have at the end with a mix of investments. Change the monthly amount, the yearly increase or the mix, and the result updates.</p></div>
+  <div class="note-adv"><div class="av">A</div><div><b>Adviser's note</b><p>No single instrument gets you there. A mix grows faster than FDs alone and falls less than equity alone. Look at the weak-market number as well as the expected one, and remember to read the result in today's money.</p></div></div>
+  <div class="grid2">
+    <div class="panel stack" id="futCtrl"></div>
+    <div class="panel stack" id="futOut"></div>
+  </div>
+  <div class="stepnav"><button class="btn" data-go="mix">← Step 3: Investment mix</button><button class="btn primary" data-go="home">Back to your summary →</button></div>
+</section>
+
+<!-- ============ SIMULATORS ============ -->
+<section id="sim" role="tabpanel" hidden>
+  <div class="pagehead"><span class="eyebrow">Tools</span><h2>See what your choices do over time</h2>
+    <p>Move the sliders and watch the numbers change. These are "what if" scenarios using assumed returns, not predictions.</p></div>
+  <div class="simnav" id="simNav"></div>
+  <div class="grid2">
+    <div class="panel stack" id="simControls"></div>
+    <div class="panel stack" id="simOut"></div>
+  </div>
+</section>
+
+<!-- ============ LEARN ============ -->
+<section id="learn" role="tabpanel" hidden>
+  <div class="pagehead"><span class="eyebrow">Learn</span><h2>Learn the basics</h2>
+    <p>Short, practical guides. No jargon and nothing to sell.</p></div>
+  <div class="learn">
+    <div class="toc" id="toc" role="tablist" aria-label="Topics"></div>
+    <div id="article"></div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p><b>For education only.</b> Rupee Roadmap does not recommend any specific stock, fund or insurance product and is not investment advice. Investment mixes are general model allocations based on common financial-planning rules, not personalised recommendations. Returns used in calculations are assumptions; real returns vary and can be negative. Tax rules change in Union Budgets, so check current rules or speak to a SEBI-registered investment adviser before acting. Your numbers stay in this browser.</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+"use strict";
+/* ================= helpers ================= */
+const $ = s => document.querySelector(s);
+const fmtFull = n => "₹" + Math.round(n).toLocaleString("en-IN");
+function fmt(n){
+  const a = Math.abs(n), s = n<0?"-":"";
+  if (a >= 1e7) return s+"₹"+(a/1e7).toFixed(2).replace(/\.?0+$/,"")+" Cr";
+  if (a >= 1e5) return s+"₹"+(a/1e5).toFixed(2).replace(/\.?0+$/,"")+" L";
+  return s+"₹"+Math.round(a).toLocaleString("en-IN");
+}
+const r500 = x => Math.round(x/500)*500;
+const clamp = (x,a,b)=>Math.max(a,Math.min(b,x));
+const esc = s => String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const store = {
+  get(k){ try{ return JSON.parse(localStorage.getItem(k)); }catch(e){ return null; } },
+  set(k,v){ try{ localStorage.setItem(k, JSON.stringify(v)); }catch(e){} }
+};
+const css = v => getComputedStyle(document.documentElement).getPropertyValue(v).trim();
+function sipFV(p, annual, years){
+  const i = annual/100/12, n = Math.round(years*12);
+  if (i === 0) return p*n;
+  return p*((Math.pow(1+i,n)-1)/i)*(1+i);
+}
+function sipNeeded(target, annual, years){ const f = sipFV(1, annual, years); return f>0 ? target/f : 0; }
+function stepUpSeries(p, step, annual, years){
+  const i = annual/100/12; let v=0, inv=0, pay=p; const out=[0], outInv=[0];
+  for(let y=1;y<=years;y++){ for(let m=0;m<12;m++){ v=(v+pay)*(1+i); inv+=pay; } out.push(v); outInv.push(inv); pay*=1+step/100; }
+  return {value:out, invested:outInv};
+}
+const band = f => f>=0.8?"good":f>=0.4?"warn":"crit";
+
+/* ================= model ================= */
+const ASSETS = [
+  {k:"cash", label:"Cash & liquid", r:6,  lo:5,   hi:6.5, c:"--c-cash", job:"Safety and quick access"},
+  {k:"debt", label:"Fixed income",  r:7,  lo:6.5, hi:7.5, c:"--c-debt", job:"Steady, predictable growth"},
+  {k:"eq",   label:"Equity",        r:11, lo:8,   hi:13,  c:"--c-eq",   job:"Long-term growth that beats inflation"},
+  {k:"gold", label:"Gold",          r:8,  lo:5,   hi:10,  c:"--c-gold", job:"Cushion when markets or the rupee fall"}
+];
+const RISK = {C:"Conservative", M:"Moderate", A:"Aggressive"};
+const BUCKETS = [
+  {k:"s", label:"3 years or less", max:3},
+  {k:"m", label:"4 to 5 years", max:5},
+  {k:"l", label:"6 to 10 years", max:10},
+  {k:"x", label:"Over 10 years", max:Infinity}
+];
+const MIX = {
+  s:{C:{cash:60,debt:40,eq:0,gold:0},  M:{cash:40,debt:60,eq:0,gold:0},  A:{cash:30,debt:70,eq:0,gold:0}},
+  m:{C:{cash:10,debt:70,eq:10,gold:10},M:{cash:10,debt:50,eq:30,gold:10},A:{cash:5,debt:40,eq:45,gold:10}},
+  l:{C:{cash:0,debt:60,eq:30,gold:10}, M:{cash:0,debt:40,eq:50,gold:10}, A:{cash:0,debt:25,eq:65,gold:10}},
+  x:{C:{cash:0,debt:45,eq:45,gold:10}, M:{cash:0,debt:30,eq:60,gold:10}, A:{cash:0,debt:15,eq:75,gold:10}}
+};
+const bucketOf = y => BUCKETS.find(b=>y<=b.max) || BUCKETS[3];
+const blended = (mix,f="r") => ASSETS.reduce((a,x)=>a+(mix[x.k]||0)/100*x[f],0);
+
+const GOAL_TYPES = {
+  retirement:{label:"Retirement", inf:6, pri:"must"},
+  education:{label:"Child's education", inf:8, pri:"must"},
+  house:{label:"House / down payment", inf:6, pri:"must"},
+  marriage:{label:"Child's marriage", inf:6, pri:"must"},
+  car:{label:"Car or bike", inf:5, pri:"nice"},
+  travel:{label:"Travel", inf:6, pri:"nice"},
+  business:{label:"Start or grow a business", inf:6, pri:"nice"},
+  other:{label:"Other goal", inf:6, pri:"nice"}
+};
+
+const SAMPLE = {
+  profile:{incomeType:"salaried",age:29,dependents:2,income:60000,expenses:32000,emi:6000,investing:12000,savings:90000,badDebt:15000,term:0,health:300000},
+  goals:[
+    {id:1,type:"retirement",name:"Retirement",retireAge:60,spend:26000,saved:150000,priority:"must"},
+    {id:2,type:"house",name:"House down payment",cost:600000,years:7,saved:50000,priority:"must"},
+    {id:3,type:"education",name:"Daughter's college",cost:1000000,years:16,saved:0,priority:"must"},
+    {id:4,type:"travel",name:"Family trip abroad",cost:200000,years:4,saved:0,priority:"nice"}
+  ],
+  risk:{answers:{0:1,1:2,2:0,3:1,4:1},override:null},
+  future:{goalId:1}
+};
+let S = store.get("rr2-state");
+let isSample = !S;
+if(!S) S = JSON.parse(JSON.stringify(SAMPLE));
+const save = () => { isSample=false; store.set("rr2-state", S); };
+
+/* risk */
+const RQ = [
+  {q:"If your investments fell 20% in a year, what would you do?", o:["Sell to stop further loss","Wait and do nothing","Invest more while prices are low"]},
+  {q:"How steady is your income?", o:["It changes a lot month to month","Mostly steady","Very steady, with regular raises"]},
+  {q:"Have you invested in equity or mutual funds before?", o:["Never","A little, for a year or two","Yes, for several years"]},
+  {q:"How many people depend on your income?", o:["Three or more","One or two","None"]},
+  {q:"What matters more to you?", o:["Not losing money","A balance of safety and growth","The highest growth, even with big swings"]}
+];
+function riskComputed(){
+  const a=S.risk.answers; if(Object.keys(a).length<RQ.length) return null;
+  const sc = RQ.reduce((t,_,i)=>t+(a[i]+1),0);
+  let r = sc<=8?"C":sc<=11?"M":"A";
+  if(a[0]===0 && r==="A") r="M";
+  return r;
+}
+const riskLevel = () => S.risk.override || riskComputed() || "M";
+
+/* goals */
+function goalYears(g){
+  if(g.type==="retirement"){ const age=Number(S.profile.age)||30; return Math.max(1,(Number(g.retireAge)||60)-age); }
+  return Math.max(1,Number(g.years)||1);
+}
+function calcGoal(g, risk){
+  const yrs=goalYears(g), t=GOAL_TYPES[g.type]||GOAL_TYPES.other, inf=t.inf;
+  let future, today;
+  if(g.type==="retirement"){
+    const spend=Number(g.spend)||0, N=Math.max(1,85-(Number(g.retireAge)||60)), r=0.07, gi=0.06;
+    const annual = spend*12*Math.pow(1+gi,yrs);
+    future = annual*((1-Math.pow((1+gi)/(1+r),N))/(r-gi))*(1+r);
+    today = future/Math.pow(1+gi,yrs);
+  } else { today=Number(g.cost)||0; future = today*Math.pow(1+inf/100,yrs); }
+  const bk=bucketOf(yrs), mix=MIX[bk.k][risk], r=blended(mix);
+  const saved=Number(g.saved)||0, savedFV=saved*Math.pow(1+r/100,yrs);
+  const gapFV=Math.max(0,future-savedFV);
+  const need=sipNeeded(gapFV,r,yrs);
+  const su=stepUpSeries(1,10,r,yrs).value[yrs];
+  const needStep = su>0?gapFV/su:0;
+  return Object.assign({},g,{yrs,inf,future,today,bucket:bk,mix,r,savedFV,gapFV,need,needStep,alloc:0});
+}
+function computeAll(){
+  const P=S.profile, risk=riskLevel();
+  const goals=S.goals.map(g=>calcGoal(g,risk));
+  const inv=Number(P.investing)||0;
+  const give=(list,amt)=>{ const tot=list.reduce((a,g)=>a+g.need,0); if(tot<=0) return amt; if(tot<=amt){ list.forEach(g=>g.alloc=g.need); return amt-tot; } list.forEach(g=>g.alloc=g.need*amt/tot); return 0; };
+  const rem=give(goals.filter(g=>g.priority==="must"),inv);
+  const extra=give(goals.filter(g=>g.priority!=="must"),rem);
+  const needSum=goals.reduce((a,g)=>a+g.need,0), needStepSum=goals.reduce((a,g)=>a+g.needStep,0);
+  const mustNeed=goals.filter(g=>g.priority==="must").reduce((a,g)=>a+g.need,0);
+  const futureSum=goals.reduce((a,g)=>a+g.future,0);
+  const room=(Number(P.income)||0)-(Number(P.expenses)||0)-(Number(P.emi)||0);
+  return {goals,risk,inv,needSum,needStepSum,mustNeed,futureSum,shortfall:Math.max(0,needSum-inv),extra,room};
+}
+
+/* ================= tabs ================= */
+const TABS=["home","found","goals","mix","future","sim","learn"];
+const tabBtns=document.querySelectorAll("nav.tabs button");
+function showTab(id){
+  tabBtns.forEach(b=>b.setAttribute("aria-selected", b.dataset.tab===id));
+  TABS.forEach(t=>{ $("#"+t).hidden = t!==id; });
+  store.set("rr2-tab", id);
+  renderTab(id);
+  const sel=document.querySelector(`nav.tabs button[data-tab="${id}"]`); if(sel&&sel.scrollIntoView) sel.scrollIntoView({block:"nearest",inline:"nearest"});
+}
+function renderTab(id){
+  if(id==="home") renderHome();
+  if(id==="found") renderFound();
+  if(id==="goals") renderGoals(true);
+  if(id==="mix") renderMix();
+  if(id==="future") renderFuture(true);
+  if(id==="sim") renderSim();
+  if(id==="learn") renderLearn();
+}
+const currentTab = () => TABS.find(t=>!$("#"+t).hidden);
+tabBtns.forEach(b=>b.addEventListener("click",()=>showTab(b.dataset.tab)));
+document.addEventListener("click",e=>{ const g=e.target.closest("[data-go]"); if(g){ showTab(g.dataset.go); window.scrollTo({top:0}); } });
+
+/* ================= charts ================= */
+function niceMax(v){ if(v<=0) return 1; const p=Math.pow(10,Math.floor(Math.log10(v))); const m=v/p; return (m<=1?1:m<=2?2:m<=2.5?2.5:m<=5?5:10)*p; }
+function lineChart(el, opts){
+  const W=640,H=300,L=66,R=16,T=18,B=36; const pw=W-L-R, ph=H-T-B;
+  const n=opts.x.length;
+  const all=opts.series.flatMap(s=>s.values).concat(opts.band?opts.band.hi:[]).concat(opts.target?[opts.target.value]:[]);
+  const maxV=niceMax(Math.max(...all));
+  const X=i=>L+(n<=1?0:i*pw/(n-1)), Y=v=>T+ph-(v/maxV)*ph;
+  let g="";
+  for(let k=0;k<=4;k++){ const v=maxV*k/4, y=Y(v); g+=`<line class="grid" x1="${L}" x2="${W-R}" y1="${y}" y2="${y}"/><text class="ax" x="${L-8}" y="${y+4}" text-anchor="end">${fmt(v)}</text>`; }
+  const step=Math.max(1,Math.ceil(n/8));
+  for(let i=0;i<n;i+=step){ if(n-1-i<step/2 && i!==n-1 && i!==0) continue; g+=`<text class="ax" x="${X(i)}" y="${H-B+18}" text-anchor="middle">${opts.x[i]}</text>`; }
+  if((n-1)%step!==0) g+=`<text class="ax" x="${X(n-1)}" y="${H-B+18}" text-anchor="middle">${opts.x[n-1]}</text>`;
+  if(opts.band){ const b=opts.band; const up=b.hi.map((v,i)=>(i?"L":"M")+X(i).toFixed(1)+","+Y(v).toFixed(1)).join(""); const dn=b.lo.map((v,i)=>"L"+X(n-1-i).toFixed(1)+","+Y(b.lo[n-1-i]).toFixed(1)).join(""); g+=`<path d="${up}${dn}Z" fill="${b.color}" fill-opacity=".16"/>`; }
+  if(opts.target){ const y=Y(opts.target.value); g+=`<line x1="${L}" x2="${W-R}" y1="${y}" y2="${y}" stroke="var(--ink)" stroke-width="1.5" stroke-dasharray="5 4"/><text class="lbl" x="${L+6}" y="${y-6}">${opts.target.label}</text>`; }
+  opts.series.forEach(s=>{
+    const d=s.values.map((v,i)=>(i?"L":"M")+X(i).toFixed(1)+","+Y(v).toFixed(1)).join("");
+    if(s.fill) g+=`<path d="${d}L${X(n-1)},${Y(0)}L${X(0)},${Y(0)}Z" fill="${s.color}" fill-opacity=".10"/>`;
+    g+=`<path d="${d}" fill="none" stroke="${s.color}" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>`;
+    g+=`<circle cx="${X(n-1)}" cy="${Y(s.values[n-1])}" r="4.5" fill="${s.color}" stroke="var(--surface)" stroke-width="2"/>`;
+  });
+  g+=`<line class="xh" x1="0" x2="0" y1="${T}" y2="${T+ph}" stroke="var(--muted)" stroke-dasharray="3 3" opacity="0"/>`;
+  el.innerHTML=`<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="${opts.aria||"Line chart"}">${g}<rect x="${L}" y="${T}" width="${pw}" height="${ph}" fill="transparent"/></svg><div class="tip"></div>`;
+  const svg=el.querySelector("svg"), tip=el.querySelector(".tip"), xh=svg.querySelector(".xh");
+  const move=e=>{
+    const r=svg.getBoundingClientRect(); const sx=(e.clientX-r.left)*W/r.width;
+    const i=clamp(Math.round((sx-L)/pw*(n-1)),0,n-1);
+    xh.setAttribute("x1",X(i)); xh.setAttribute("x2",X(i)); xh.setAttribute("opacity",1);
+    let h=`${opts.x[i]}<br>`+opts.series.map(s=>`<span style="color:${s.color}">●</span> ${s.name}: <b>${fmt(s.values[i])}</b>`).join("<br>");
+    if(opts.band) h+=`<br>Range: <b>${fmt(opts.band.lo[i])} – ${fmt(opts.band.hi[i])}</b>`;
+    tip.innerHTML=h;
+    const top=Math.min(...opts.series.map(s=>Y(s.values[i])));
+    tip.style.left=clamp(X(i)/W*r.width,70,r.width-70)+"px"; tip.style.top=(top/H*r.height)+"px"; tip.style.opacity=1;
+  };
+  svg.addEventListener("pointermove",move); svg.addEventListener("pointerdown",move);
+  svg.addEventListener("pointerleave",()=>{tip.style.opacity=0; xh.setAttribute("opacity",0);});
+}
+function barChart(el, opts){
+  const W=640,H=300,L=66,R=16,T=28,B=40; const pw=W-L-R, ph=H-T-B;
+  const n=opts.bars.length, maxV=niceMax(Math.max(...opts.bars.map(b=>b.value)));
+  const slot=pw/n, bw=Math.min(84,slot*0.56); const Y=v=>T+ph-(v/maxV)*ph;
+  let g="";
+  for(let k=0;k<=4;k++){ const v=maxV*k/4,y=Y(v); g+=`<line class="grid" x1="${L}" x2="${W-R}" y1="${y}" y2="${y}"/><text class="ax" x="${L-8}" y="${y+4}" text-anchor="end">${fmt(v)}</text>`; }
+  opts.bars.forEach((b,i)=>{
+    const cx=L+slot*i+slot/2, x=cx-bw/2, y=Y(b.value), h=Math.max(0,Y(0)-y), r=Math.min(4,h);
+    g+=`<path d="M${x},${Y(0)}V${y+r}Q${x},${y} ${x+r},${y}H${x+bw-r}Q${x+bw},${y} ${x+bw},${y+r}V${Y(0)}Z" fill="${b.color}"/>`;
+    g+=`<text class="lbl" x="${cx}" y="${y-8}" text-anchor="middle">${fmt(b.value)}</text>`;
+    g+=`<text class="ax" x="${cx}" y="${H-B+18}" text-anchor="middle">${b.label}</text>`;
+    g+=`<rect x="${L+slot*i}" y="${T}" width="${slot}" height="${ph}" fill="transparent" data-i="${i}"/>`;
+  });
+  el.innerHTML=`<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="${opts.aria||"Bar chart"}">${g}</svg><div class="tip"></div>`;
+  const svg=el.querySelector("svg"), tip=el.querySelector(".tip");
+  svg.querySelectorAll("rect[data-i]").forEach(rc=>{
+    const show=()=>{ const i=+rc.dataset.i, b=opts.bars[i], r=svg.getBoundingClientRect();
+      tip.innerHTML=`${b.label}<br><b>${fmtFull(b.value)}</b>${b.sub?"<br>"+b.sub:""}`;
+      tip.style.left=clamp((L+slot*i+slot/2)/W*r.width,70,r.width-70)+"px"; tip.style.top=(Y(b.value)/H*r.height)+"px"; tip.style.opacity=1; };
+    rc.addEventListener("pointerenter",show); rc.addEventListener("pointerdown",show);
+    rc.addEventListener("pointerleave",()=>tip.style.opacity=0);
+  });
+}
+function stackBar(mix){
+  return `<div class="stackbar" role="img" aria-label="${ASSETS.filter(a=>mix[a.k]).map(a=>a.label+" "+mix[a.k]+"%").join(", ")}">${ASSETS.filter(a=>mix[a.k]>0).map(a=>`<i style="width:${mix[a.k]}%;background:var(${a.c})" title="${a.label} ${mix[a.k]}%"></i>`).join("")}</div>
+  <div class="mixlegend">${ASSETS.filter(a=>mix[a.k]>0).map(a=>`<span><i style="background:var(${a.c})"></i>${a.label} <b>${mix[a.k]}%</b></span>`).join("")}</div>`;
+}
+
+/* ================= HOME ================= */
+function renderHome(){
+  const A=computeAll(), ev=evaluate(A);
+  const ret=A.goals.find(g=>g.type==="retirement") || A.goals[0];
+  let fut="";
+  if(ret){ const p=project({monthly:ret.alloc,saved:Number(ret.saved)||0,mix:ret.mix,yrs:ret.yrs,stepUp:0}); const v=p.exp[ret.yrs], f=v/ret.future;
+    fut=`<span>${esc(ret.name)}: expected</span><b>${fmt(v)}</b><span class="pill ${band(f)}">${Math.round(f*100)}% of ${fmt(ret.future)} needed</span>`; }
+  const sb=band(ev.score/100);
+  const cards=[
+    {n:1,go:"found",q:"Am I financially safe?",d:"Check your emergency fund, insurance and debt before you invest a rupee more.",
+      s:`<span>Money health score</span><b>${ev.score} / 100</b><span class="pill ${sb}">${{good:"Solid",warn:"Gaps to fix",crit:"Fix the basics"}[sb]}</span>`},
+    {n:2,go:"goals",q:"What am I saving for?",d:"List your goals and see what they'll cost after inflation, and how much to invest each month.",
+      s:`<span>${A.goals.length} goals need</span><b>${fmt(A.needSum)}/month</b><span class="pill ${A.shortfall>0?(A.inv/A.needSum>=0.4?"warn":"crit"):"good"}">${A.shortfall>0?fmt(A.shortfall)+" short each month":"Fully funded"}</span>`},
+    {n:3,go:"mix",q:"How should I invest for each goal?",d:"Find your risk profile and get a mix of investment types for each goal.",
+      s:`<span>Risk profile</span><b>${RISK[A.risk]}</b><span class="pill neutral">${riskComputed()||S.risk.override?"Set":"Default, take the quiz"}</span>`},
+    {n:4,go:"future",q:"Will I get there?",d:"See the amount you'd have at each goal date with a mix of investments, including a weak-market case.",
+      s:fut||"<span>Add a goal first</span>"}
+  ];
+  $("#journey").innerHTML=cards.map(c=>`<div class="jcard"><span class="jn">${c.n}</span><h3>${c.q}</h3><p>${c.d}</p><div class="stat">${c.s}</div><button class="btn ${c.n===1?"primary":""}" data-go="${c.go}">${c.n===1?"Start here":"Open step "+c.n} →</button></div>`).join("");
+}
+
+/* ================= STEP 1 FOUNDATION ================= */
+const PF=["age","dependents","income","expenses","emi","investing","savings","badDebt","term","health"];
+function fillForm(){
+  PF.forEach(f=>{ $("#"+f).value = S.profile[f]; });
+  document.querySelectorAll("#incomeType button").forEach(b=>b.setAttribute("aria-pressed", b.dataset.v===S.profile.incomeType));
+  $("#incomeHint").textContent = S.profile.incomeType==="business" ? "Average monthly amount you take from the business over the last 12 months" : "After tax and PF deductions";
+  $("#sampleNote").hidden = !isSample;
+}
+$("#planForm").addEventListener("input",()=>{ PF.forEach(f=>{ const v=$("#"+f).value; S.profile[f]= v===""?"":Number(v); }); save(); $("#sampleNote").hidden=true; renderFound(true); });
+$("#planForm").addEventListener("submit",e=>e.preventDefault());
+document.querySelectorAll("#incomeType button").forEach(b=>b.addEventListener("click",()=>{ S.profile.incomeType=b.dataset.v; save(); fillForm(); renderFound(true); }));
+$("#clearBtn").addEventListener("click",()=>{ S.profile={incomeType:"salaried",age:"",dependents:0,income:"",expenses:"",emi:0,investing:0,savings:0,badDebt:0,term:0,health:0}; S.goals=[{id:1,type:"retirement",name:"Retirement",retireAge:60,spend:"",saved:0,priority:"must"}]; S.risk={answers:{},override:null}; S.future={goalId:1}; save(); fillForm(); renderFound(true); });
+
+function evaluate(A){
+  const p=S.profile, n=k=>Number(p[k])||0;
+  const inc=n("income"), exp=n("expenses"), emi=n("emi"), inv=n("investing"), sav=n("savings"), bad=n("badDebt"), term=n("term"), health=n("health"), deps=n("dependents");
+  const biz=p.incomeType==="business", checks=[];
+  const mT=biz?9:6, monthly=exp+emi, months=monthly>0?sav/monthly:0, efTarget=monthly*mT;
+  let f=clamp(months/mT,0,1);
+  checks.push({title:"Emergency fund",w:20,frac:f,why:`Covers ${months.toFixed(1)} of ${mT} months of expenses and EMIs.${biz?" Business income can dip without warning, so the target is 9 months.":""}`,
+    act:f>=1?"Keep it in a savings account, FD or liquid fund, not equity.":`Add ${fmt(Math.max(0,efTarget-sav))} to reach ${fmt(efTarget)}.`});
+  const termNeed=deps>0?inc*12*10:0; f=deps>0?clamp(term/termNeed,0,1):1;
+  checks.push({title:"Life cover",w:15,frac:f,why:deps>0?`Your family would need about ${fmt(termNeed)} (10 years of income). You have ${fmt(term)}.`:"No one depends on your income yet, so term insurance can wait.",
+    act:deps>0?(f>=1?"Cover looks adequate. Revisit after marriage, a child or a home loan.":`Get a pure term plan for about ${fmt(termNeed-term)} more.`):"Buy it when you marry or take a big loan. It's cheaper the younger you are."});
+  const hN=500000; f=clamp(health/hN,0,1);
+  checks.push({title:"Health cover",w:15,frac:f,why:health>0?`You have ${fmt(health)} of cover. A family usually needs at least ${fmt(hN)}, more in big cities.`:"You have no health insurance. One hospital stay can wipe out years of savings.",
+    act:f>=1?"Good. If it's only employer cover, add a personal policy so you stay covered between jobs.":`Raise cover to at least ${fmt(hN)}. A family floater or top-up plan is a low-cost way.`});
+  const er=inc>0?emi/inc:0; let df=er<=0.3?1:er<=0.4?0.66:er<=0.5?0.33:0; if(bad>0) df=Math.min(df,0.33);
+  checks.push({title:"Debt load",w:15,frac:df,why:`EMIs take ${(er*100).toFixed(0)}% of income (keep it under 30%).${bad>0?` You owe ${fmt(bad)} on credit card or personal loan, which charges 14–42% a year.`:""}`,
+    act:bad>0?"Pay this off before investing. No investment reliably beats that interest rate.":(df>=1?"Healthy. Avoid new loans for things that lose value.":"Avoid new loans and prepay the costliest one first.")});
+  const rate=inc>0?inv/inc:0; f=clamp(rate/0.2,0,1);
+  checks.push({title:"Saving rate",w:15,frac:f,why:`You save ${(rate*100).toFixed(0)}% of income. Aim for 20% or more.${A.room-inv>0?` About ${fmt(A.room-inv)} a month is left after expenses, EMIs and savings.`:""}`,
+    act:f>=1?"Great habit. Increase your savings every time your income goes up.":`Save ${fmt(Math.max(0,inc*0.2-inv))} more a month. Set it to move automatically on payday.`});
+  f=A.needSum>0?clamp(A.inv/A.needSum,0,1):(A.goals.length?1:0);
+  checks.push({title:"Goals on track",w:20,frac:f,why:A.goals.length?`Your ${A.goals.length} goals need ${fmt(A.needSum)} a month. You invest ${fmt(A.inv)}.`:"You haven't added any goals yet.",
+    act:A.goals.length?(f>=1?"All goals are funded. Check the mix in Step 3.":`See Step 2 for which goals to fund first and how to close the ${fmt(A.shortfall)} gap.`):"Add your goals in Step 2."});
+  const score=Math.round(checks.reduce((a,c)=>a+c.w*c.frac,0));
+  return {checks,score,ctx:{bad,sav,efTarget,health,hN,deps,term,termNeed,mT}};
+}
+function renderFound(fromInput){
+  if(!fromInput) fillForm();
+  const out=$("#foundOut");
+  if(!(Number(S.profile.income)>0)||!(Number(S.profile.expenses)>0)){
+    out.innerHTML=`<div class="panel stack"><span class="eyebrow">Your result</span><h3>Start with your income and expenses</h3><p class="muted">Enter your monthly take-home income and household expenses. Your score and step-by-step plan appear here as you type.</p></div>`; return; }
+  const A=computeAll(), r=evaluate(A), b=band(r.score/100), c=r.ctx;
+  const circ=2*Math.PI*54, col=css({good:"--good",warn:"--warn",crit:"--crit"}[b]);
+  const st=[
+    {t:"Pay off costly debt",d:c.bad>0?`Clear ${fmt(c.bad)} of credit card or personal loan debt first.`:"No high-interest debt. Keep it that way.",done:c.bad<=0},
+    {t:"Build your emergency fund",d:`Keep ${c.mT} months of expenses (${fmt(c.efTarget)}) somewhere safe and easy to withdraw.`,done:c.sav>=c.efTarget},
+    {t:"Get health insurance",d:`At least ${fmt(c.hN)} of family cover, separate from your employer's.`,done:c.health>=c.hN},
+    {t:"Get term life insurance",d:c.deps>0?`About ${fmt(c.termNeed)} of pure term cover.`:"Not needed until someone depends on your income.",done:c.deps===0||c.term>=c.termNeed},
+    {t:"Invest for your goals",d:A.goals.length?`About ${fmt(A.needSum)} a month across ${A.goals.length} goals. Steps 2 to 4 show how.`:"Add your goals in Step 2.",done:A.goals.length>0&&A.inv>=A.needSum},
+    {t:"Review every 6 months",d:"And after a raise, marriage, a child or a new loan.",done:false,always:true}
+  ];
+  let found=false;
+  const items=st.map((s,i)=>{ let cls="later",tag="Later"; if(s.done){cls="done";tag="Done";} else if(s.always){tag="Ongoing";} else if(!found){cls="next";tag="Do this next";found=true;}
+    return `<li class="${cls}"><span class="n">${s.done?"✓":i+1}</span><div><h4>${s.t}<span class="tag">${tag}</span></h4><p>${s.d}</p></div></li>`; }).join("");
+  out.innerHTML=`
+  <div class="panel"><div class="scorehead">
+    <div class="dial"><svg viewBox="0 0 128 128"><circle cx="64" cy="64" r="54" fill="none" stroke="var(--sunk)" stroke-width="12"/><circle cx="64" cy="64" r="54" fill="none" stroke="${col}" stroke-width="12" stroke-linecap="round" stroke-dasharray="${circ*r.score/100} ${circ}"/></svg>
+      <div class="val"><div><b>${r.score}</b><small>out of 100</small></div></div></div>
+    <div class="stack" style="gap:8px"><span class="eyebrow">Money health score${isSample?" · example":""}</span>
+      <h3>${b==="good"?"Your foundation is solid":b==="warn"?"A good start, with gaps to fix":"Fix the basics before investing more"}</h3>
+      <p class="muted" style="font-size:.9rem">Scored on six checks. Work through the plan below in order, because each step protects the one after it.</p></div>
+  </div></div>
+  <div class="panel"><span class="eyebrow">Your plan, in order</span><ol class="steps" style="margin-top:12px">${items}</ol></div>
+  <div class="panel"><span class="eyebrow">Why you got this score</span><div style="margin-top:6px">${r.checks.map(ch=>{const bb=band(ch.frac);return `
+    <div class="check"><h4>${ch.title}</h4><span class="pill ${bb}">${{good:"On track",warn:"Needs work",crit:"Act now"}[bb]} · ${Math.round(ch.w*ch.frac)}/${ch.w}</span>
+    <div class="meter"><i class="${bb}" style="width:${Math.max(2,ch.frac*100)}%"></i></div><p>${ch.why}</p><div class="act"><b>Next:</b> ${ch.act}</div></div>`}).join("")}</div></div>`;
+}
+
+/* ================= STEP 2 GOALS ================= */
+function goalCard(g){
+  const id=g.id, isR=g.type==="retirement";
+  const typeOpts=Object.entries(GOAL_TYPES).map(([k,t])=>`<option value="${k}" ${k===g.type?"selected":""}>${t.label}</option>`).join("");
+  return `<div class="gcard" data-id="${id}">
+    <div class="gtop"><input type="text" class="gname" id="g-${id}-name" value="${esc(g.name)}" aria-label="Goal name" maxlength="40"><button type="button" class="rm" data-rm="${id}">Remove</button></div>
+    <div class="row2">
+      <div class="field"><label for="g-${id}-type">Type</label><select id="g-${id}-type" data-f="type">${typeOpts}</select></div>
+      <div class="field"><label for="g-${id}-priority">Priority</label><select id="g-${id}-priority" data-f="priority"><option value="must" ${g.priority==="must"?"selected":""}>Must-have</option><option value="nice" ${g.priority!=="must"?"selected":""}>Nice-to-have</option></select></div>
+    </div>
+    <div class="row3">
+      ${isR?`<div class="field"><label for="g-${id}-retireAge">Retire at age</label><input type="number" id="g-${id}-retireAge" data-f="retireAge" min="40" max="75" value="${g.retireAge??60}"></div>
+      <div class="field"><label for="g-${id}-spend">Monthly spend then</label><div class="inr"><span>₹</span><input type="number" id="g-${id}-spend" data-f="spend" min="0" step="1000" value="${g.spend??""}"></div></div>`
+      :`<div class="field"><label for="g-${id}-cost">Cost today</label><div class="inr"><span>₹</span><input type="number" id="g-${id}-cost" data-f="cost" min="0" step="10000" value="${g.cost??""}"></div></div>
+      <div class="field"><label for="g-${id}-years">Years away</label><input type="number" id="g-${id}-years" data-f="years" min="1" max="50" value="${g.years??""}"></div>`}
+      <div class="field"><label for="g-${id}-saved">Saved so far</label><div class="inr"><span>₹</span><input type="number" id="g-${id}-saved" data-f="saved" min="0" step="10000" value="${g.saved??0}"></div></div>
+    </div>
+    ${isR?`<span class="note" style="margin-top:-6px">Monthly spend in retirement, in today's rupees. Most people need 70–80% of what they spend now. Plans to age 85.</span>`:""}
+    <div class="gout" id="gout-${id}"></div>
+  </div>`;
+}
+function goalOut(c){
+  const f=c.need>0?clamp(c.alloc/c.need,0,1):1, b=band(f);
+  return `<div><small>Will cost in ${c.yrs} yrs</small><b>${fmt(c.future)}</b></div>
+    <div><small>Invest each month</small><b>${fmt(c.need)}</b></div>
+    <div class="full"><div class="row"><small>Getting now: <b style="font-size:.85rem">${fmt(c.alloc)}</b> of your monthly savings</small><span class="pill ${b}">${c.need<=0?"Covered by savings":Math.round(f*100)+"% funded"}</span></div>
+    <div class="meter"><i class="${b}" style="width:${Math.max(2,f*100)}%"></i></div>
+    <small>${c.type==="retirement"?"Corpus to last from "+(c.retireAge||60)+" to 85, with 6% inflation.":"Assumes "+c.inf+"% yearly price rise"+(c.type==="education"?" (education costs rise faster)":"")+"."} Growth assumed at ${c.r.toFixed(1)}% a year with your ${RISK[riskLevel()].toLowerCase()} mix.</small></div>`;
+}
+function renderGoals(full){
+  const A=computeAll();
+  if(full){
+    $("#goalList").innerHTML = S.goals.map(goalCard).join("") +
+      `<div class="addgoal"><span>Add another goal</span><select id="addType" aria-label="Goal type to add"><option value="">Choose a goal type…</option>${Object.entries(GOAL_TYPES).map(([k,t])=>`<option value="${k}">${t.label}</option>`).join("")}</select></div>`;
+  }
+  A.goals.forEach(c=>{ const el=$("#gout-"+c.id); if(el) el.innerHTML=goalOut(c); });
+  // tiles
+  const funded=A.needSum>0?A.inv/A.needSum:1;
+  $("#goalTiles").innerHTML=`
+    <div class="tile"><small>Total your goals will cost</small><b>${fmt(A.futureSum)}</b><small>after inflation</small></div>
+    <div class="tile"><small>You need to invest</small><b>${fmt(A.needSum)}</b><small>every month</small></div>
+    <div class="tile"><small>You invest now</small><b>${fmt(A.inv)}</b><small>${Math.round(clamp(funded,0,9.99)*100)}% of what's needed</small></div>
+    <div class="tile ${A.shortfall>0?"alert":"ok"}"><small>${A.shortfall>0?"Monthly shortfall":"Spare each month"}</small><b>${fmt(A.shortfall>0?A.shortfall:A.extra)}</b><small>${A.shortfall>0?"across all goals":"after funding every goal"}</small></div>`;
+  drawTimeline(A);
+  // verdict
+  const nice=A.goals.filter(g=>g.priority!=="must"), niceNeed=nice.reduce((a,g)=>a+g.need,0);
+  const spare=Math.max(0,A.room-A.inv);
+  let v=`<span class="eyebrow">The adviser's read</span>`;
+  if(!A.goals.length){ v+=`<h3>Add your first goal</h3><p class="muted">Start with retirement. Everyone has that goal, even if it feels far away.</p>`; }
+  else if(A.shortfall<=0){ v+=`<h3>Every goal is funded</h3><p>You invest ${fmt(A.inv)} a month and your goals need ${fmt(A.needSum)}. The extra ${fmt(A.extra)} can go to an earlier retirement or a new goal. Now make sure each goal is invested the right way in Step 3.</p>`; }
+  else {
+    v+=`<h3>You're ${fmt(A.shortfall)} a month short. Here's how to close the gap.</h3><ol>
+      <li><b>Fund must-haves first.</b> Your must-have goals need ${fmt(A.mustNeed)} a month; ${A.inv>=A.mustNeed?"your current savings cover them.":"your current "+fmt(A.inv)+" goes to them before anything else."}</li>
+      ${spare>0?`<li><b>Use the money you're not saving.</b> After expenses, EMIs and current savings, about ${fmt(spare)} a month is left. Putting ${fmt(Math.min(spare,A.shortfall))} of it to work ${spare>=A.shortfall?"closes the whole gap":"closes "+Math.round(spare/A.shortfall*100)+"% of the gap"}.</li>`:""}
+      <li><b>Step up every year.</b> If you raise your SIPs by 10% each year, in line with salary hikes, you could start at ${fmt(A.needStepSum)} a month instead of ${fmt(A.needSum)}.</li>
+      ${niceNeed>0?`<li><b>Delay or shrink nice-to-haves.</b> ${nice.map(g=>esc(g.name)).join(", ")} need ${fmt(niceNeed)} a month. Pushing them back a few years frees money for must-haves now.</li>`:""}
+      <li><b>Don't borrow from retirement.</b> A child's education can be part-funded with a loan. Retirement can't.</li></ol>`;
+  }
+  $("#goalVerdict").innerHTML=v;
+}
+function drawTimeline(A){
+  const el=$("#timeline"); const gs=[...A.goals].sort((a,b)=>a.yrs-b.yrs);
+  if(!gs.length){ el.innerHTML=`<p class="muted">Your goals will appear here.</p>`; return; }
+  const W=720,H=170,L=24,R=24, maxY=Math.max(5,Math.ceil(Math.max(...gs.map(g=>g.yrs))/5)*5), ax=88;
+  const X=y=>L+y/maxY*(W-L-R);
+  const age=Number(S.profile.age)||null;
+  let s=`<line x1="${L}" x2="${W-R}" y1="${ax}" y2="${ax}" stroke="var(--line)" stroke-width="2"/>`;
+  for(let y=0;y<=maxY;y+=5){ s+=`<line x1="${X(y)}" x2="${X(y)}" y1="${ax-4}" y2="${ax+4}" stroke="var(--muted)"/><text class="ax" x="${X(y)}" y="${H-4}" text-anchor="${y===0?"start":y===maxY?"end":"middle"}">${y===0?"Now":"+"+y+" yrs"}${age?" · "+(age+y):""}</text>`; }
+  gs.forEach((g,i)=>{ const x=X(g.yrs), up=i%2===0, ty=up?ax-44:ax+30, anc=x<L+70?"start":x>W-R-70?"end":"middle";
+    s+=`<line x1="${x}" x2="${x}" y1="${up?ax-28:ax+8}" y2="${up?ax-8:ax+16}" stroke="var(--muted)"/>`;
+    s+=`<circle cx="${x}" cy="${ax}" r="7" fill="${g.priority==="must"?"var(--accent)":"var(--surface)"}" stroke="var(--accent)" stroke-width="2"/>`;
+    s+=`<text class="gl" x="${x}" y="${ty}" text-anchor="${anc}">${esc(g.name)}</text><text class="gv" x="${x}" y="${ty+15}" text-anchor="${anc}">${fmt(g.future)} · ${g.yrs} yrs</text>`; });
+  el.innerHTML=`<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Goals timeline">${s}</svg><div class="legend" style="margin-top:6px"><span><i style="width:10px;height:10px;border-radius:50%;background:var(--accent)"></i>Must-have</span><span><i style="width:10px;height:10px;border-radius:50%;border:2px solid var(--accent);background:transparent"></i>Nice-to-have</span></div>`;
+}
+$("#goalList").addEventListener("input",e=>{
+  const card=e.target.closest(".gcard"); if(!card) return; const g=S.goals.find(x=>x.id==card.dataset.id); if(!g) return;
+  if(e.target.classList.contains("gname")){ g.name=e.target.value; save(); renderGoals(false); return; }
+  const f=e.target.dataset.f; if(!f||e.target.tagName==="SELECT") return;
+  g[f]= e.target.value===""?"":Number(e.target.value); save(); renderGoals(false);
+});
+$("#goalList").addEventListener("change",e=>{
+  if(e.target.id==="addType"){ const t=e.target.value; if(!t) return; const id=Math.max(0,...S.goals.map(g=>g.id))+1;
+    S.goals.push(t==="retirement"?{id,type:t,name:"Retirement",retireAge:60,spend:Math.round((Number(S.profile.expenses)||0)*0.8/1000)*1000,saved:0,priority:"must"}:{id,type:t,name:GOAL_TYPES[t].label,cost:500000,years:5,saved:0,priority:GOAL_TYPES[t].pri});
+    save(); renderGoals(true); return; }
+  const card=e.target.closest(".gcard"); if(!card) return; const g=S.goals.find(x=>x.id==card.dataset.id);
+  if(e.target.dataset.f==="type"){ g.type=e.target.value; if(g.type==="retirement"){g.retireAge=g.retireAge||60; g.spend=g.spend||Math.round((Number(S.profile.expenses)||0)*0.8/1000)*1000;} else {g.cost=g.cost||500000; g.years=g.years||5;} save(); renderGoals(true); }
+  if(e.target.dataset.f==="priority"){ g.priority=e.target.value; save(); renderGoals(false); drawTimeline(computeAll()); }
+});
+$("#goalList").addEventListener("click",e=>{ const id=e.target.dataset.rm; if(!id) return; S.goals=S.goals.filter(g=>g.id!=id); save(); renderGoals(true); });
+
+/* ================= STEP 3 MIX ================= */
+function whereFor(g, k){
+  const y=g.yrs, t=g.type;
+  if(k==="cash") return {list:["Savings account or sweep-in FD","Liquid or overnight debt fund"],why:"Money you may need any time, or soon"};
+  if(k==="debt"){
+    if(y<5) return {list:["Bank FD or RD that matures near the goal date","Short-duration or money-market debt fund","Post office time deposit or RD"],why:"Known value on the date you need it"};
+    if(t==="retirement") return {list:["EPF, and VPF if you want more","PPF","NPS (its government bond and corporate bond portions)"],why:"Safe, tax-efficient, locked in for the long run"};
+    if(t==="education"||t==="marriage") return {list:["PPF","Sukanya Samriddhi Yojana, if it's for a daughter under 10","Bank FD ladder for the last few years"],why:"Safe, tax-efficient, matches a long horizon"};
+    return {list:["PPF","Target-maturity or short-duration debt fund","Bank FD ladder"],why:"Steady part of the mix that cushions equity"};
+  }
+  if(k==="eq"){
+    if(y<5) return {list:["Balanced advantage or other hybrid fund","Large-cap index fund"],why:"Some growth with smaller swings"};
+    const l=["Nifty 50 or Sensex index fund (low cost)","Flexi-cap or large & mid-cap fund"];
+    if(t==="retirement") l.push("NPS (its equity portion)");
+    l.push("ELSS, only if you use the old tax regime");
+    return {list:l,why:"The growth engine. Invest through a monthly SIP."};
+  }
+  return {list:["Gold ETF or gold mutual fund","Not jewellery: making charges are lost"],why:"Rises when markets or the rupee fall"};
+}
+function renderRiskPanel(){
+  const comp=riskComputed(), lvl=riskLevel();
+  const answered=Object.keys(S.risk.answers).length;
+  $("#riskPanel").innerHTML=`<div><span class="eyebrow">Your risk profile</span><h3 style="margin-top:4px">Five quick questions</h3></div>
+    <div class="quiz">${RQ.map((q,i)=>`<div class="qq"><p>${i+1}. ${q.q}</p><div class="opts" data-q="${i}">${q.o.map((o,j)=>`<button type="button" data-v="${j}" aria-pressed="${S.risk.answers[i]===j}">${o}</button>`).join("")}</div></div>`).join("")}</div>
+    <div class="riskres"><span class="eyebrow">${comp?"Your profile":answered+" of 5 answered · using Moderate for now"}</span><b class="big">${RISK[lvl]}</b>
+      <p style="font-size:.88rem" class="muted">${{C:"You value safety over growth. Equity stays a smaller part of long-term goals.",M:"You want growth but can live with some ups and downs. A balanced mix for most goals.",A:"You can sit through big falls for higher long-term growth. More equity for long goals."}[lvl]}</p>
+      <div class="field"><span class="lab">Change it yourself</span><div class="seg" id="riskOv">${Object.entries(RISK).map(([k,v])=>`<button type="button" data-v="${k}" aria-pressed="${lvl===k}">${v}</button>`).join("")}</div></div>
+      ${S.risk.override?`<button type="button" class="linkbtn" id="riskReset" style="justify-self:start">Use my quiz result instead</button>`:""}
+    </div>`;
+  $("#riskPanel").querySelectorAll(".opts").forEach(o=>o.querySelectorAll("button").forEach(b=>b.addEventListener("click",()=>{ S.risk.answers[o.dataset.q]=Number(b.dataset.v); S.risk.override=null; save(); renderMix(); })));
+  $("#riskOv").querySelectorAll("button").forEach(b=>b.addEventListener("click",()=>{ S.risk.override=b.dataset.v; save(); renderMix(); }));
+  const rr=$("#riskReset"); if(rr) rr.addEventListener("click",()=>{ S.risk.override=null; save(); renderMix(); });
+}
+function renderMix(){
+  renderRiskPanel();
+  const A=computeAll(), lvl=A.risk;
+  const cards=A.goals.map(g=>`<div class="mcard">
+    <div class="mtop"><div><h3>${esc(g.name)}</h3><span class="muted" style="font-size:.84rem">${GOAL_TYPES[g.type].label} · ${g.yrs} years away (${g.bucket.label.toLowerCase()}) · ${g.priority==="must"?"Must-have":"Nice-to-have"}</span></div>
+    <span class="pill neutral">Assumed growth ${g.r.toFixed(1)}% a year</span></div>
+    ${stackBar(g.mix)}
+    <div class="where">${ASSETS.filter(a=>g.mix[a.k]>0).map(a=>{const w=whereFor(g,a.k);return `<div style="--c:var(${a.c})"><h5><span>${a.label}</span><span class="num">${g.mix[a.k]}%</span></h5><ul>${w.list.map(x=>`<li>${x}</li>`).join("")}</ul><span class="why">${w.why}</span></div>`}).join("")}</div>
+    ${g.bucket.k!=="s"?`<p class="note">As this goal gets within 3 years, move the equity part into FDs or debt funds a little at a time, so a market fall close to the date can't hurt it.</p>`:`<p class="note">This goal is close, so no equity. Pick options that mature on or before the date you need the money.</p>`}
+  </div>`).join("");
+  const cell=(b,r)=>{const m=MIX[b][r]; return `<td class="cell ${r===lvl?"me":""}">${m.eq}% / ${m.debt+m.cash}% / ${m.gold}%</td>`;};
+  $("#mixOut").innerHTML=(A.goals.length?cards:`<div class="panel"><h3>Add goals in Step 2 first</h3><p class="muted">Each goal gets its own mix here.</p></div>`)+`
+    <div class="panel stack"><div><span class="eyebrow">The rule behind every mix</span><h3 style="margin-top:4px">Time to goal × risk profile</h3><p class="muted" style="font-size:.88rem;margin-top:4px">Equity / safe (debt + cash) / gold. Your column is highlighted.</p></div>
+    <div class="tablewrap"><table class="matrix"><thead><tr><th>Time to goal</th>${Object.entries(RISK).map(([k,v])=>`<th style="text-align:center">${v}</th>`).join("")}</tr></thead><tbody>
+    ${BUCKETS.map(b=>`<tr><td>${b.label}</td>${["C","M","A"].map(r=>cell(b.k,r)).join("")}</tr>`).join("")}</tbody></table></div>
+    <div class="dd"><div class="do"><h4>Do</h4><ul><li>Pick direct plans of mutual funds; they cost less every year</li><li>Prefer simple, low-cost index funds for the equity part</li><li>Rebalance once a year back to your mix</li><li>Use tax-saving options only if they also fit the goal</li></ul></div>
+    <div class="dont"><h4>Don't</h4><ul><li>Buy insurance-cum-investment plans for a goal</li><li>Hold more than 4–5 funds; more adds nothing</li><li>Change the mix because of news or recent returns</li><li>Put money for a goal under 3 years away in equity</li></ul></div></div></div>`;
+}
+
+/* ================= STEP 4 FUTURE ================= */
+function project(o){
+  const scen={exp:"r",lo:"lo",hi:"hi"}, V={exp:{},lo:{},hi:{}}, out={exp:[],lo:[],hi:[],fd:[],inv:[],byAsset:{}};
+  ASSETS.forEach(a=>{ Object.keys(scen).forEach(s=>V[s][a.k]=(o.saved||0)*(o.mix[a.k]||0)/100); });
+  let fd=o.saved||0, inv=o.saved||0, pay=o.monthly||0;
+  const push=()=>{ Object.keys(scen).forEach(s=>out[s].push(ASSETS.reduce((t,a)=>t+V[s][a.k],0))); out.fd.push(fd); out.inv.push(inv); };
+  push();
+  for(let y=1;y<=o.yrs;y++){
+    for(let m=0;m<12;m++){
+      ASSETS.forEach(a=>{ const w=(o.mix[a.k]||0)/100; Object.entries(scen).forEach(([s,f])=>{ V[s][a.k]=(V[s][a.k]+pay*w)*(1+a[f]/1200); }); });
+      fd=(fd+pay)*(1+6.5/1200); inv+=pay;
+    }
+    push(); pay*=1+(o.stepUp||0)/100;
+  }
+  ASSETS.forEach(a=>out.byAsset[a.k]=V.exp[a.k]);
+  return out;
+}
+let FS=null; // live state for future tab
+function normMix(mix,k,v){
+  const keys=ASSETS.map(a=>a.k).filter(x=>x!==k); v=clamp(Math.round(v),0,100);
+  const rest=keys.reduce((t,x)=>t+mix[x],0), remain=100-v; const m={...mix,[k]:v};
+  if(rest===0){ keys.forEach((x,i)=>m[x]=i===0?remain:0); }
+  else { keys.forEach(x=>m[x]=Math.round(mix[x]*remain/rest)); const diff=100-ASSETS.reduce((t,a)=>t+m[a.k],0); const big=keys.reduce((a,b)=>m[a]>=m[b]?a:b); m[big]+=diff; }
+  return m;
+}
+function renderFuture(full){
+  const A=computeAll();
+  if(!A.goals.length){ $("#futCtrl").innerHTML=`<h3>Add a goal in Step 2 first</h3>`; $("#futOut").innerHTML=""; return; }
+  let g=A.goals.find(x=>x.id==S.future.goalId)||A.goals[0]; S.future.goalId=g.id;
+  if(full||!FS||FS.id!==g.id){
+    const sv=S.future.byGoal&&S.future.byGoal[g.id];
+    FS={id:g.id, monthly: sv?sv.monthly:r500(g.alloc), stepUp: sv?sv.stepUp:0, saved: Number(g.saved)||0, mix: sv&&sv.mix?sv.mix:{...g.mix}};
+    const maxM=Math.max(25000, Math.ceil(Math.max(g.need*1.6, FS.monthly*1.5)/5000)*5000);
+    $("#futCtrl").innerHTML=`
+      <div class="field"><label for="futGoal">Goal</label><select id="futGoal">${A.goals.map(x=>`<option value="${x.id}" ${x.id===g.id?"selected":""}>${esc(x.name)} · ${x.yrs} yrs</option>`).join("")}</select></div>
+      <div class="slider"><div class="top"><label for="fMonthly">Monthly investment</label><output id="oMonthly"></output></div><input type="range" id="fMonthly" min="0" max="${maxM}" step="500" value="${FS.monthly}">
+        <div style="display:flex;gap:12px;flex-wrap:wrap"><button type="button" class="linkbtn" id="useNow">What I put in now (${fmt(r500(g.alloc))})</button><button type="button" class="linkbtn" id="useNeed">What's needed (${fmt(r500(g.need))})</button></div></div>
+      <div class="slider"><div class="top"><label for="fStep">Increase every year</label><output id="oStep"></output></div><input type="range" id="fStep" min="0" max="15" step="1" value="${FS.stepUp}"></div>
+      <div class="slider"><div class="top"><label for="fSaved">Already invested for it</label><output id="oSaved"></output></div><input type="range" id="fSaved" min="0" max="${Math.max(1000000,Math.ceil(FS.saved*2/100000)*100000)}" step="10000" value="${FS.saved}"></div>
+      <hr>
+      <div class="mixtotal"><span class="eyebrow">Your investment mix</span><button type="button" class="linkbtn" id="mixReset">Use Step 3 mix</button></div>
+      <div id="mixBar"></div>
+      ${ASSETS.map(a=>`<div class="slider"><div class="top"><label for="m-${a.k}"><i style="background:var(${a.c})"></i>${a.label} <span class="muted" style="font-weight:400">· ${a.r}%/yr</span></label><output id="om-${a.k}"></output></div><input type="range" id="m-${a.k}" data-k="${a.k}" min="0" max="100" step="5" value="${FS.mix[a.k]}"></div>`).join("")}
+      <p class="note">Return figures are long-run assumptions before tax. The weak and strong cases use lower and higher returns for each type.</p>`;
+    const persist=()=>{ S.future.byGoal=S.future.byGoal||{}; S.future.byGoal[FS.id]={monthly:FS.monthly,stepUp:FS.stepUp,mix:FS.mix}; save(); };
+    $("#futGoal").addEventListener("change",e=>{ S.future.goalId=Number(e.target.value); save(); renderFuture(true); });
+    $("#fMonthly").addEventListener("input",e=>{ FS.monthly=Number(e.target.value); persist(); drawFuture(); });
+    $("#fStep").addEventListener("input",e=>{ FS.stepUp=Number(e.target.value); persist(); drawFuture(); });
+    $("#fSaved").addEventListener("input",e=>{ FS.saved=Number(e.target.value); drawFuture(); });
+    $("#useNow").addEventListener("click",()=>{ FS.monthly=r500(g.alloc); $("#fMonthly").value=FS.monthly; persist(); drawFuture(); });
+    $("#useNeed").addEventListener("click",()=>{ FS.monthly=r500(g.need); $("#fMonthly").value=FS.monthly; FS.stepUp=0; $("#fStep").value=0; persist(); drawFuture(); });
+    $("#mixReset").addEventListener("click",()=>{ FS.mix={...g.mix}; ASSETS.forEach(a=>$("#m-"+a.k).value=FS.mix[a.k]); persist(); drawFuture(); });
+    ASSETS.forEach(a=>$("#m-"+a.k).addEventListener("input",e=>{ FS.mix=normMix(FS.mix,a.k,Number(e.target.value)); ASSETS.forEach(b=>{ if(b.k!==a.k) $("#m-"+b.k).value=FS.mix[b.k]; }); persist(); drawFuture(); }));
+  }
+  FS.goal=g; drawFuture();
+}
+function drawFuture(){
+  const g=FS.goal, yrs=g.yrs;
+  $("#oMonthly").textContent=fmt(FS.monthly); $("#oStep").textContent=FS.stepUp+"%"; $("#oSaved").textContent=fmt(FS.saved);
+  ASSETS.forEach(a=>$("#om-"+a.k).textContent=FS.mix[a.k]+"%");
+  $("#mixBar").innerHTML=stackBar(FS.mix);
+  const p=project({monthly:FS.monthly,saved:FS.saved,mix:FS.mix,yrs,stepUp:FS.stepUp});
+  const exp=p.exp[yrs], lo=p.lo[yrs], hi=p.hi[yrs], fdv=p.fd[yrs], target=g.future, inv=p.inv[yrs];
+  const infl=g.type==="retirement"?6:g.inf, real=exp/Math.pow(1+infl/100,yrs);
+  const gap=target-exp, f=exp/target, b=band(f>=1?1:f);
+  const r=blended(FS.mix);
+  const needM = sipNeeded(Math.max(0,target-FS.saved*Math.pow(1+r/100,yrs)), r, yrs);
+  const eqShare=FS.mix.eq;
+  const xs=[]; for(let y=0;y<=yrs;y++) xs.push(y===0?"Now":(y%1===0?"Yr "+y:""));
+  const s1=css("--s1"), s2=css("--s2");
+  $("#futOut").innerHTML=`
+    <div class="mtop" style="display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap;align-items:center"><span class="eyebrow">${esc(g.name)} · in ${yrs} years</span><span class="pill ${b}">${f>=1?"On track":Math.round(f*100)+"% of target"}</span></div>
+    <div class="big">
+      <div><small>Expected amount</small><b>${fmt(exp)}</b><small>Worth ${fmt(real)} in today's money</small></div>
+      <div><small>You need</small><b>${fmt(target)}</b><small>${g.type==="retirement"?"Corpus to last to 85":"Cost after inflation"}</small></div>
+      <div><small>${gap>0?"Gap":"Extra"}</small><b style="color:var(${gap>0?"--crit":"--good"})">${fmt(Math.abs(gap))}</b><small>${gap>0?"short at the goal date":"above the target"}</small></div>
+    </div>
+    <div class="legend"><span><i style="background:${s1}"></i>Expected, with your mix</span><span><i class="band" style="background:${s1}"></i>Weak to strong market range</span><span><i style="background:${s2}"></i>Same money, all in FDs</span><span><i class="dash"></i>Target</span></div>
+    <div class="chart" id="futChart"></div>
+    <div class="takeaway">
+      <p><b>Range:</b> in a weak market you'd have about <b>${fmt(lo)}</b>; in a strong one about <b>${fmt(hi)}</b>. You put in ${fmt(inv)} in total.</p>
+      <p><b>Why a mix:</b> the same money in FDs alone would grow to ${fmt(fdv)}, which is ${fmt(Math.max(0,exp-fdv))} less${eqShare>0?", and FD interest is taxed every year at your slab":""}.</p>
+      <p><b>${gap>0?"To close the gap":"Room to relax"}:</b> ${gap>0?`invest about ${fmt(needM)} a month with this mix${FS.stepUp===0?", or keep this amount and add a 10% yearly increase":""}${eqShare<50&&yrs>=10?". With "+yrs+" years to go, a little more equity could also help, if your risk profile allows it":""}.`:`you could reach the target with about ${fmt(needM)} a month. Keep the extra as a safety margin; markets don't follow averages.`}</p>
+    </div>
+    <div class="tablewrap"><table><thead><tr><th>Investment type</th><th class="n">Share</th><th class="n">Monthly now</th><th class="n">Assumed return</th><th class="n">Value at goal</th></tr></thead><tbody>
+      ${ASSETS.map(a=>`<tr><td><span style="display:inline-block;width:10px;height:10px;border-radius:2px;background:var(${a.c});margin-right:8px"></span>${a.label}</td><td class="n">${FS.mix[a.k]}%</td><td class="n">${fmt(FS.monthly*FS.mix[a.k]/100)}</td><td class="n">${a.r}%</td><td class="n">${fmt(p.byAsset[a.k])}</td></tr>`).join("")}
+      <tr><td><b>Total</b></td><td class="n">100%</td><td class="n">${fmt(FS.monthly)}</td><td class="n">${r.toFixed(1)}%</td><td class="n"><b>${fmt(exp)}</b></td></tr>
+    </tbody></table></div>`;
+  lineChart($("#futChart"),{x:xs,series:[{name:"Expected",color:s1,values:p.exp},{name:"All in FD",color:s2,values:p.fd}],band:{lo:p.lo,hi:p.hi,color:s1},target:{value:target,label:"Target "+fmt(target)},aria:"Projected growth"});
+}
+
+/* ================= SIMULATORS ================= */
+const SIMS = {
+  wait:{name:"Cost of waiting",ctrls:[["sip","Monthly SIP",500,25000,500,5000,"inr"],["ret","Expected return a year",6,14,0.5,11,"%"],["ret_age","Stop investing at",45,65,1,60,"age"]]},
+  infl:{name:"Inflation check",ctrls:[["amt","Amount today",10000,5000000,10000,100000,"inr"],["inf","Inflation a year",3,10,0.5,6,"%"],["yrs","Years ahead",1,40,1,20,"yr"]]},
+  goal:{name:"Goal planner",ctrls:[["cost","Goal cost today",50000,10000000,50000,1500000,"inr"],["yrs","Years to goal",1,30,1,12,"yr"],["inf","Inflation a year",3,10,0.5,6,"%"],["ret","Expected return a year",4,14,0.5,10,"%"]]},
+  step:{name:"Step-up SIP",ctrls:[["sip","Starting monthly SIP",500,25000,500,3000,"inr"],["up","Increase every year",0,20,1,10,"%"],["yrs","Years",5,35,1,20,"yr"],["ret","Expected return a year",6,14,0.5,11,"%"]]},
+  loan:{name:"Prepay loan or invest",ctrls:[["amt","Spare lump sum",10000,2000000,10000,200000,"inr"],["loan","Loan interest rate",6,20,0.25,9,"%"],["ret","Expected return after tax",4,14,0.5,10,"%"],["yrs","Years left on loan",1,25,1,10,"yr"]]}
+};
+let simKey = store.get("rr-sim") || "wait";
+const simVals = store.get("rr-simvals") || {};
+const vfmt=(v,u)=>u==="inr"?fmt(v):u==="%"?v+"%":u==="age"?"age "+v:v+(v===1?" year":" years");
+function renderSim(){
+  $("#simNav").innerHTML = Object.entries(SIMS).map(([k,s])=>`<button type="button" data-k="${k}" aria-pressed="${k===simKey}">${s.name}</button>`).join("");
+  $("#simNav").querySelectorAll("button").forEach(b=>b.addEventListener("click",()=>{ simKey=b.dataset.k; store.set("rr-sim",simKey); renderSim(); }));
+  const s=SIMS[simKey]; simVals[simKey]=simVals[simKey]||{}; const V=simVals[simKey];
+  $("#simControls").innerHTML = `<h3>${s.name}</h3>` + s.ctrls.map(([k,l,mn,mx,st,df,u])=>{ const v=V[k]??df; V[k]=v;
+    return `<div class="slider"><div class="top"><label for="s-${simKey}-${k}">${l}</label><output id="o-${k}">${vfmt(v,u)}</output></div><input type="range" id="s-${simKey}-${k}" data-k="${k}" min="${mn}" max="${mx}" step="${st}" value="${v}"></div>`; }).join("") + `<p class="note">Returns are assumptions. Equity can fall sharply in some years; these show long-run averages.</p>`;
+  $("#simControls").querySelectorAll("input").forEach(inp=>inp.addEventListener("input",()=>{
+    const c=s.ctrls.find(c=>c[0]===inp.dataset.k); V[c[0]]=Number(inp.value); $("#o-"+c[0]).textContent=vfmt(V[c[0]],c[6]); store.set("rr-simvals",simVals); drawSim(); }));
+  drawSim();
+}
+function drawSim(){
+  const V=simVals[simKey], out=$("#simOut"), s1=css("--s1"), s2=css("--s2");
+  if(simKey==="wait"){
+    const ages=[25,30,35,40].filter(a=>a<V.ret_age);
+    const bars=ages.map((a,i)=>({label:`Start at ${a}`,value:sipFV(V.sip,V.ret,V.ret_age-a),color:i===0?s1:s2,sub:`You put in ${fmt(V.sip*12*(V.ret_age-a))}`}));
+    const lost=bars.length>1?bars[0].value-bars[1].value:0;
+    out.innerHTML=`<div class="big"><div><small>Start at 25</small><b>${fmt(bars[0].value)}</b></div>${bars[1]?`<div><small>Start at 30</small><b>${fmt(bars[1].value)}</b></div>`:""}</div>
+      <div class="chart" id="ch"></div>
+      <p class="takeaway">Waiting 5 years to start a ${fmt(V.sip)} SIP costs you about ${fmt(lost)} by age ${V.ret_age}, even though you'd invest only ${fmt(V.sip*60)} less. The early years earn the most because they compound the longest.</p>`;
+    barChart($("#ch"),{bars,aria:"Corpus at different starting ages"});
+  }
+  if(simKey==="infl"){
+    const xs=[],vals=[],cost=[];
+    for(let y=0;y<=V.yrs;y++){ xs.push(y===0?"Now":"Yr "+y); vals.push(V.amt/Math.pow(1+V.inf/100,y)); cost.push(V.amt*Math.pow(1+V.inf/100,y)); }
+    out.innerHTML=`<div class="big"><div><small>What ${fmt(V.amt)} buys in ${V.yrs} years</small><b>${fmt(vals[V.yrs])}</b></div><div><small>Cost of today's ${fmt(V.amt)} basket then</small><b>${fmt(cost[V.yrs])}</b></div></div>
+      <div class="legend"><span><i style="background:${s1}"></i>Buying power of your money</span><span><i style="background:${s2}"></i>Price of the same things</span></div>
+      <div class="chart" id="ch"></div>
+      <p class="takeaway">Money kept idle loses about ${Math.round((1-vals[V.yrs]/V.amt)*100)}% of its value over ${V.yrs} years at ${V.inf}% inflation. A savings account paying less than inflation is losing money in real terms.</p>`;
+    lineChart($("#ch"),{x:xs,series:[{name:"Buying power",color:s1,values:vals,fill:true},{name:"Price",color:s2,values:cost}],aria:"Inflation effect"});
+  }
+  if(simKey==="goal"){
+    const fut=V.cost*Math.pow(1+V.inf/100,V.yrs), need=sipNeeded(fut,V.ret,V.yrs);
+    const su=stepUpSeries(1,10,V.ret,V.yrs).value[V.yrs], needSU=su>0?fut/su:0;
+    const xs=[],inv=[],val=[]; for(let y=0;y<=V.yrs;y++){ xs.push(y===0?"Now":"Yr "+y); inv.push(need*12*y); val.push(sipFV(need,V.ret,y)); }
+    out.innerHTML=`<div class="big"><div><small>Goal will cost</small><b>${fmt(fut)}</b></div><div><small>Save every month</small><b>${fmt(need)}</b></div><div><small>Or start at, +10% a year</small><b>${fmt(needSU)}</b></div></div>
+      <div class="legend"><span><i style="background:${s1}"></i>Value with growth</span><span><i style="background:${s2}"></i>Money you put in</span></div>
+      <div class="chart" id="ch"></div>
+      <p class="takeaway">Prices rise, so plan for ${fmt(fut)}, not today's ${fmt(V.cost)}. For your full set of goals, use Step 2.</p>`;
+    lineChart($("#ch"),{x:xs,series:[{name:"Value",color:s1,values:val,fill:true},{name:"Put in",color:s2,values:inv}],aria:"Goal growth"});
+  }
+  if(simKey==="step"){
+    const flat=[],xs=[]; for(let y=0;y<=V.yrs;y++){ xs.push(y===0?"Now":"Yr "+y); flat.push(sipFV(V.sip,V.ret,y)); }
+    const su=stepUpSeries(V.sip,V.up,V.ret,V.yrs), extra=su.value[V.yrs]-flat[V.yrs];
+    out.innerHTML=`<div class="big"><div><small>Same SIP every year</small><b>${fmt(flat[V.yrs])}</b></div><div><small>SIP up ${V.up}% a year</small><b>${fmt(su.value[V.yrs])}</b></div></div>
+      <div class="legend"><span><i style="background:${s1}"></i>With step-up</span><span><i style="background:${s2}"></i>Flat SIP</span></div>
+      <div class="chart" id="ch"></div>
+      <p class="takeaway">Raising your SIP by ${V.up}% each year adds about ${fmt(extra)} over ${V.yrs} years. In the last year you'd be investing ${fmt(V.sip*Math.pow(1+V.up/100,V.yrs-1))} a month.</p>`;
+    lineChart($("#ch"),{x:xs,series:[{name:"Step-up",color:s1,values:su.value,fill:true},{name:"Flat",color:s2,values:flat}],aria:"Step-up vs flat SIP"});
+  }
+  if(simKey==="loan"){
+    const xs=[],pre=[],inv=[]; for(let y=0;y<=V.yrs;y++){ xs.push(y===0?"Now":"Yr "+y); pre.push(V.amt*Math.pow(1+V.loan/100,y)); inv.push(V.amt*Math.pow(1+V.ret/100,y)); }
+    const diff=inv[V.yrs]-pre[V.yrs];
+    out.innerHTML=`<div class="big"><div><small>Benefit of prepaying</small><b>${fmt(pre[V.yrs])}</b></div><div><small>Benefit of investing</small><b>${fmt(inv[V.yrs])}</b></div></div>
+      <div class="legend"><span><i style="background:${s1}"></i>Prepay (guaranteed saving)</span><span><i style="background:${s2}"></i>Invest (not guaranteed)</span></div>
+      <div class="chart" id="ch"></div>
+      <p class="takeaway">${diff>0?`Investing comes out about ${fmt(diff)} ahead on paper, but that return isn't guaranteed and prepaying is. Many people split the amount.`:`Prepaying wins by about ${fmt(-diff)}, and its saving is guaranteed.`} Keep your emergency fund intact before doing either.</p>`;
+    lineChart($("#ch"),{x:xs,series:[{name:"Prepay",color:s1,values:pre},{name:"Invest",color:s2,values:inv}],aria:"Prepay vs invest"});
+  }
+}
+
+/* ================= LEARN ================= */
+const QS = [
+  "I have 6 months of expenses saved in a safe place I can withdraw quickly.",
+  "I have no credit card dues or personal loans that I can't pay off this month.",
+  "I have health insurance that covers my family, separate from my employer's cover.",
+  "If people depend on my income, I have a pure term life plan of at least 10 times my yearly income.",
+  "Each investment I hold is linked to a goal with a date (house, child's education, retirement).",
+  "Money I need within 3 years is not in equity.",
+  "I invest automatically every month, before I spend.",
+  "I increase my investment amount when my income goes up.",
+  "I understand what I own, its risk, and why I bought it. Nobody 'just sold' it to me.",
+  "I review my plan once or twice a year, not every day, and don't stop SIPs when markets fall."
+];
+let answers = store.get("rr-quiz") || {};
+const TOPICS = [
+  {id:"check",t:"Am I on the right investment journey?"},
+  {id:"why",t:"Why teach finance to kids"},
+  {id:"how",t:"How to teach finance to kids"},
+  {id:"inst",t:"Investment instruments and their role"},
+  {id:"books",t:"Best books on personal finance"}
+];
+let topic = store.get("rr-topic") || "check";
+function quizResult(){
+  const yes=QS.filter((_,i)=>answers[i]==="y").length, answered=Object.keys(answers).length;
+  if(answered<QS.length) return `<div class="result warn"><h4>${answered} of ${QS.length} answered</h4><p>Answer all ten to see where you stand.</p></div>`;
+  const b=yes>=8?"good":yes>=5?"warn":"crit";
+  const msg={good:["You're on the right path","Your foundation is in place. Keep investing steadily and review once or twice a year."],
+    warn:["You're partly there","Look at the questions where you said No. Fix the first four (emergency fund, debt, insurance) before adding more investments."],
+    crit:["Start with the basics","Before picking investments, build an emergency fund, clear costly debt and get insured. Step 1 shows you the order."]}[b];
+  const nos=QS.map((q,i)=>answers[i]==="n"?i+1:null).filter(Boolean);
+  return `<div class="result ${b}"><span class="pill ${b}">${yes} / 10</span><h4>${msg[0]}</h4><p>${msg[1]}</p>${nos.length?`<p class="muted" style="font-size:.85rem">Work on: question ${nos.join(", ")}.</p>`:""}</div>`;
+}
+const lvl=n=>`<span class="lvl" aria-label="${n} of 3">${[1,2,3].map(k=>`<i class="${k<=n?"on":""}"></i>`).join("")}</span>`;
+function renderLearn(){
+  $("#toc").innerHTML=TOPICS.map((x,i)=>`<button role="tab" type="button" data-id="${x.id}" aria-selected="${x.id===topic}"><span>${i+1}</span>${x.t}</button>`).join("");
+  $("#toc").querySelectorAll("button").forEach(b=>b.addEventListener("click",()=>{ topic=b.dataset.id; store.set("rr-topic",topic); renderLearn(); }));
+  const A=$("#article");
+  if(topic==="check"){
+    A.innerHTML=`<div class="article"><span class="eyebrow">Self-check · 2 minutes</span><h2>Am I on the right investment journey?</h2>
+      <p class="lead">Returns alone don't tell you if you're on track. A good journey has the basics in place and runs on habits. Answer honestly; this stays on your device.</p>
+      <div class="qlist">${QS.map((q,i)=>`<div class="q"><p><span class="num muted">${String(i+1).padStart(2,"0")}</span>&nbsp; ${q}</p><div class="seg" data-q="${i}"><button type="button" data-v="y" aria-pressed="${answers[i]==="y"}">Yes</button><button type="button" data-v="n" aria-pressed="${answers[i]==="n"}">No</button></div></div>`).join("")}</div>
+      <div id="qres">${quizResult()}</div>
+      <div class="dd"><div class="do"><h4>Signs you're on track</h4><ul><li>You know why you hold each investment</li><li>You stayed invested through the last market fall</li><li>Your savings grow every year, not just your returns</li></ul></div>
+      <div class="dont"><h4>Warning signs</h4><ul><li>You bought something because a friend, agent or video said so</li><li>You check your portfolio daily and feel anxious</li><li>You've been promised "guaranteed high returns"</li></ul></div></div></div>`;
+    A.querySelectorAll(".seg[data-q]").forEach(sg=>sg.querySelectorAll("button").forEach(b=>b.addEventListener("click",()=>{
+      answers[sg.dataset.q]=b.dataset.v; store.set("rr-quiz",answers); sg.querySelectorAll("button").forEach(x=>x.setAttribute("aria-pressed",x===b)); $("#qres").innerHTML=quizResult(); })));
+  }
+  if(topic==="why"){
+    const R=[["Habits form early","Money habits like saving before spending and waiting for things you want are largely set in childhood. It's easier to build them at 8 than to fix them at 30."],
+      ["Schools don't teach it","Most children finish school knowing compound interest as a maths formula, not as something that grows their money. Home is where the practical lesson happens."],
+      ["They'll face more choices, sooner","UPI, buy-now-pay-later, credit cards and in-app purchases put spending one tap away. Kids need judgment before they get access."],
+      ["It protects them from scams and mis-selling","A child who understands risk and return is more likely to ask \"how is this guaranteed?\" as an adult."],
+      ["It makes money a normal topic","Families that talk openly about money raise adults who ask for help early, negotiate salaries and plan together with a partner."]];
+    A.innerHTML=`<div class="article"><span class="eyebrow">Summary</span><h2>Why it's important to teach finance to kids</h2>
+      <p class="lead">Many of us learned about money by making mistakes in our twenties. Teaching children early lets them make small mistakes with small amounts, when the cost is low.</p>
+      <div class="reasons">${R.map(r=>`<div class="reason"><h4>${r[0]}</h4><p>${r[1]}</p></div>`).join("")}</div>
+      <div class="takeaway"><b>In one line:</b> financial literacy is a life skill like swimming. You don't wait until someone is in deep water to teach it.</div></div>`;
+  }
+  if(topic==="how"){
+    const ages=[["Ages 3–6","Money is something we exchange",["Use a clear jar for coins so they can see savings grow","Let them pay at a shop and get change back","Play shop at home with toy money","Talk about choices: \"We can buy this or that, not both\""]],
+      ["Ages 7–12","Earn, save, spend, share",["Give a small fixed pocket money on a set day","Use three jars or envelopes: Save, Spend, Share","Let them save for something they want over a few weeks","Pay \"interest\" yourself on what they save, to show compounding","Compare prices together while grocery shopping"]],
+      ["Ages 13–17","Planning, banking and risk",["Open a minor savings account and let them track it","Give a monthly budget for some of their own expenses","Show them a real household bill and the family budget","Explain inflation, SIPs and insurance with your own examples","Talk about online scams, UPI fraud and \"too good to be true\" offers"]]];
+    A.innerHTML=`<div class="article"><span class="eyebrow">Guide by age</span><h2>How to teach finance to kids</h2>
+      <p class="lead">Match the lesson to their age, keep amounts small and real, and let them make choices, including bad ones.</p>
+      <div class="ages">${ages.map(a=>`<div class="age"><div><div class="yrs">${a[0]}</div><span class="muted" style="font-size:.85rem">${a[1]}</span></div><ul>${a[2].map(x=>`<li>${x}</li>`).join("")}</ul></div>`).join("")}</div>
+      <div class="dd"><div class="do"><h4>Do</h4><ul><li>Be consistent with pocket money: same amount, same day</li><li>Let them feel the result of spending it all early</li><li>Talk about your own money decisions out loud</li><li>Praise saving and patience, not just the amount</li><li>Involve them in a family goal, like a holiday fund</li></ul></div>
+      <div class="dont"><h4>Don't</h4><ul><li>Rescue them every time they run out</li><li>Treat money as a secret or a source of fights in front of them</li><li>Use money only as a reward or punishment</li><li>Hand over a debit card or UPI without rules and a limit</li><li>Lecture. Short, real examples work better.</li></ul></div></div></div>`;
+  }
+  if(topic==="inst"){
+    const rows=[
+      ["Emergency layer: money you may need any day"],
+      ["Savings account","Daily cash and part of emergency fund",1,3,"Any time","Interest taxed at your slab","Keeping large amounts here for years; inflation eats it"],
+      ["Fixed deposit (FD) / Recurring deposit (RD)","Emergency fund, short-term goals",1,2,"0–3 yrs","Interest taxed at your slab","Treating it as the only long-term investment"],
+      ["Liquid / overnight debt fund","Emergency fund parking",1,3,"Days to 1 yr","Gains taxed at your slab","Expecting it to grow like equity"],
+      ["Protection layer: not investments, but they protect everything else"],
+      ["Term life insurance","Replaces your income for your family if you die",0,0,"Till 60–65","Premium may get tax benefit under old regime","Buying endowment or money-back plans instead, which give low cover and low returns"],
+      ["Health insurance","Pays hospital bills",0,0,"Renew yearly","Premium may get tax benefit under old regime","Relying only on employer cover, which ends when the job ends"],
+      ["Stability layer: steady, lower-risk growth"],
+      ["PPF","Long-term safe savings; retirement or child's education",1,1,"15 yrs","Interest and maturity tax-free","Using it for goals under 15 years"],
+      ["EPF / VPF","Retirement savings for salaried people",1,1,"Till retirement","Mostly tax-free within limits","Withdrawing it when changing jobs"],
+      ["Debt mutual funds","Goals 1–5 years away",2,2,"1–5 yrs","Gains taxed at your slab","Assuming they can't lose value; some do when rates move"],
+      ["Growth layer: beats inflation over long periods"],
+      ["Equity mutual funds / index funds","Long-term goals: retirement, child's education",3,2,"7+ yrs","Gains taxed lower if held over 1 year","Stopping SIPs when markets fall; investing money needed soon"],
+      ["Direct stocks","Growth, for those who can research",3,3,"7+ yrs","Same as equity funds","Following tips; putting most money in a few stocks"],
+      ["Other layers"],
+      ["NPS","Extra retirement savings",2,1,"Till 60","Extra deduction available; part must buy a pension at 60","Not knowing about the lock-in"],
+      ["Gold (ETF or fund)","Small hedge, 5–10% of portfolio",2,3,"5+ yrs","Depends on holding period","Treating jewellery as investment; making charges are lost"],
+      ["Real estate","Own home; sometimes rental income",2,1,"10+ yrs","Capital gains tax on sale","Overstretching EMIs; assuming prices always rise"],
+      ["Endowment / ULIP / money-back","Mixes insurance with investment",1,1,"10–20 yrs","Often tax-free maturity","Usually low cover and low returns; buy term insurance and invest separately"]
+    ];
+    A.innerHTML=`<div class="article"><span class="eyebrow">Comparison</span><h2>Investment instruments and their role</h2>
+      <p class="lead">Every instrument has a job. A good portfolio is built in layers: first money you can reach any day, then protection, then steady growth, then long-term growth. Step 3 shows which of these fit each of your goals.</p>
+      <div class="tablewrap"><table class="inst"><thead><tr><th>Instrument</th><th>Its job in your portfolio</th><th>Risk</th><th>Liquidity</th><th>Horizon</th><th>Tax (broadly)</th><th>Common mistake</th></tr></thead><tbody>
+      ${rows.map(r=>r.length===1?`<tr class="layer"><td colspan="7">${r[0]}</td></tr>`:`<tr><td class="iname">${r[0]}</td><td>${r[1]}</td><td>${r[2]?lvl(r[2]):"<span class='muted'>n/a</span>"}</td><td>${r[3]?lvl(r[3]):"<span class='muted'>n/a</span>"}</td><td>${r[4]}</td><td>${r[5]}</td><td><span class="${r[0].startsWith("Endowment")?"trap":""}">${r[6]}</span></td></tr>`).join("")}
+      </tbody></table></div>
+      <p class="note">Risk and liquidity: one bar is low, three is high. Tax rules change in Union Budgets; this table shows the broad treatment only.</p></div>`;
+  }
+  if(topic==="books"){
+    const B=[
+      ["Let's Talk Money","Monika Halan","Start here","Written for Indian readers. Covers budgeting, insurance, mutual funds and building a simple money system.","Build a money box: income, spend, emergency, insure, invest."],
+      ["The Psychology of Money","Morgan Housel","Start here","Short stories about why smart people make poor money decisions. Easy to read, no maths.","Behaviour matters more than intelligence in personal finance."],
+      ["Retire Rich: Invest ₹100 a Day","P. V. Subramanyam","Start here","Indian context, plain language, focused on starting small and staying consistent.","Small amounts invested early beat large amounts invested late."],
+      ["I Will Teach You to Be Rich","Ramit Sethi","Beginner","A practical, step-by-step programme for automating savings and spending guilt-free. US examples, but the system travels well.","Automate your money so good decisions happen by default."],
+      ["The Richest Man in Babylon","George S. Clason","Beginner","Classic parables about saving and making money work. Good for teenagers too.","Pay yourself first: keep a part of everything you earn."],
+      ["The Little Book of Common Sense Investing","John C. Bogle","Intermediate","Why low-cost, broad-market index investing works for most people over the long run.","Costs compound too. Keep them low and stay invested."],
+      ["The Simple Path to Wealth","J. L. Collins","Intermediate","A clear guide to simple long-term investing and financial independence. US-based, so ignore the tax specifics.","Spend less than you earn, invest the rest, avoid debt."]
+    ];
+    A.innerHTML=`<div class="article"><span class="eyebrow">Reading list</span><h2>Best books to learn personal finance</h2>
+      <p class="lead">Read them in this order. The first three are enough to get started; the rest deepen your understanding. None need a finance background.</p>
+      <div class="books">${B.map(b=>`<div class="book"><div><h4>${b[0]}</h4><span class="by">${b[1]}</span></div><span class="chip ${b[2]==="Start here"?"start":""}">${b[2]}</span><p>${b[3]}</p><div class="idea"><b>Key idea:</b> ${b[4]}</div></div>`).join("")}</div>
+      <div class="dd"><div class="do"><h4>How to read them</h4><ul><li>One book at a time; act on one idea before the next book</li><li>Discuss a chapter with your partner or a friend</li></ul></div><div class="dont"><h4>Be careful with</h4><ul><li>Books and videos about getting rich quickly through trading</li><li>US tax and retirement rules, which don't apply in India</li></ul></div></div></div>`;
+  }
+}
+
+/* ================= init ================= */
+fillForm();
+const h=(location.hash||"").replace("#","");
+showTab(TABS.includes(h)?h:(store.get("rr2-tab")||"home"));
+const redraw=()=>{ const t=currentTab(); if(t==="found") renderFound(true); else if(t==="future") drawFuture(); else if(t==="sim") drawSim(); };
+const mq=window.matchMedia("(prefers-color-scheme: dark)"); if(mq.addEventListener) mq.addEventListener("change",redraw);
+new MutationObserver(redraw).observe(document.documentElement,{attributes:true,attributeFilter:["data-theme"]});
+})();
+</script>
+</body>
+</html>
